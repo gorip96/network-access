@@ -58,7 +58,7 @@ if (!isset($_GET['code']) && !isset($_GET['provider'])) {
     exit;
 }
 
-require 'vendor/autoload.php';
+require '../../autoload.php';
 
 session_start();
 
