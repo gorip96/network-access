@@ -5,6 +5,8 @@ use Phppot\Config;
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
+include "Config.php";
+
 class MailService
 {
 
@@ -14,9 +16,6 @@ class MailService
         $email = $postValues["userEmail"];
         $subject = $postValues["subject"];
         $content = $postValues["content"];
-
-        require_once __DIR__ . '/Config.php';
-        $recipientArray = explode(",", Config::RECIPIENT_EMAIL);
 
         require_once __DIR__ . '/../vendor/autoload.php';
         $mail = new PHPMailer(true);
@@ -80,7 +79,7 @@ class MailService
         $mail->setFrom(Config::SENDER_EMAIL, $name);
         $mail->addReplyTo($email, $name);
 
-        $mail->addAddress(Config::RECIPIENT_EMAIL, Config::RECIPIENT_EMAIL);
+        $mail->addAddress($recepient_email);
 
         $mail->Subject = $subject;
 
@@ -92,7 +91,7 @@ class MailService
 
         if (!$mail->send()) {
             $output = json_encode(array('type'=>'error', 'text' => '<b>'.$from.'</b> is invalid.'));
-            $output = json_encode(array('type'=>'error', 'text' => 'Server error. Please mail vincy@phppot.com'));
+            $output = json_encode(array('type'=>'error', 'text' => 'Server error. Please mail riv@ixtelecom.net'));
         } else {
             $output = json_encode(array('type'=>'message', 'text' => 'Thank you, I will get back to you shortly.'));
         }
