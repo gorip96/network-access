@@ -7,6 +7,12 @@
  */
 namespace Phppot;
 
+session_start();
+require '../init.php';
+    $stmt = $conn->prepare('select * from users where username = :username');
+        $stmt->bindValue('username', $_SESSION['username']);
+        $stmt->execute();
+        $account = $stmt->fetch(PDO::FETCH_OBJ);
 /**
  * This class contains the configuration options
  */
@@ -18,7 +24,7 @@ class Config
     const SENDER_EMAIL = 'riv@ixtelecom.net';
 
     // you can add one or more emails separated by a comma (,).
-    const RECIPIENT_EMAIL = 'riv@ixtelecom.net';
+    const RECIPIENT_EMAIL = $account->email;
 
     const OAUTH_USER_EMAIL = 'riv@ixtelecom.net';
 
