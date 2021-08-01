@@ -60,14 +60,14 @@ if(isset($_POST['buttonLogin'])) {
         <label for="inputUser" class="col-sm-2 col-form-label">User Name</label>
         <div class="col-sm-10">
           <input type="text" class="form-control" id="inputUser" name="username" placeholder="Username">
-          <?php echo $errName; ?>
+          <!-- <?php echo $errName; ?> -->
         </div>
       </div>
       <div class="form-group row">
         <label for="inputPassword3" class="col-sm-2 col-form-label">Password</label>
         <div class="col-sm-10">
           <input type="password" class="form-control" id="inputPassword" name="password" placeholder="Password">
-          <?php echo $errPass; ?>
+          <!-- <?php echo $errPass; ?> -->
         </div>
       </div>
       <div class="form-group row">
