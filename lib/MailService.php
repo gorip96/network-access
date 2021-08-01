@@ -4,6 +4,9 @@ namespace Phppot;
 use Phppot\Config;
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\OAuth;
+use League\OAuth2\Client\Provider\Google;
 
 include "Config.php";
 
@@ -85,7 +88,7 @@ class MailService
         $mail->Subject = $subject;
 
         $mail->CharSet = PHPMailer::CHARSET_UTF8;
-        $mail->msgHTML($mailBody);
+        $mail->msgHTML($content);
 
         //Replace the plain text body with one created manually
         $mail->AltBody = 'This is a plain-text message body';
