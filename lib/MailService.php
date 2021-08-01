@@ -14,9 +14,10 @@ class MailService
     {
         $name = $postValues["userName"];
         $email = $postValues["userEmail"];
+        $recepient = $postValues["recepientEmail"];
         $subject = $postValues["subject"];
         $content = $postValues["content"];
-
+	
         require_once __DIR__ . '/../vendor/autoload.php';
         $mail = new PHPMailer(true);
 
@@ -79,7 +80,7 @@ class MailService
         $mail->setFrom(Config::SENDER_EMAIL, $name);
         $mail->addReplyTo($email, $name);
 
-        $mail->addAddress($recepient_email);
+        $mail->addAddress($recepient);
 
         $mail->Subject = $subject;
 

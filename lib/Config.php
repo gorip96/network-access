@@ -6,7 +6,8 @@
  * Written by Vincy <vincy@phppot.com>
  */
 namespace Phppot;
-use \PDO;
+
+/* use \PDO;
 
 session_start();
 require '../init.php';
@@ -14,7 +15,7 @@ require '../init.php';
         $stmt->bindValue('username', $_SESSION['username']);
         $stmt->execute();
         $account = $stmt->fetch(PDO::FETCH_OBJ);
-$recipient_email = $account->email;
+$recipient_email = $account->email; **/
 
 /**
  * This class contains the configuration options
