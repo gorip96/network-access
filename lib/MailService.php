@@ -83,7 +83,7 @@ class MailService
         $mail->setFrom(Config::SENDER_EMAIL, Config::SENDER_NAME);
         $mail->addReplyTo(Config::SENDER_EMAIL, Config::SENDER_NAME);
 
-        $mail->addAddress($email, $email);
+        $mail->addAddress($email, $name);
 
         $mail->Subject = $subject;
 
