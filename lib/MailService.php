@@ -17,7 +17,6 @@ class MailService
     {
         $name = $postValues["userName"];
         $email = $postValues["userEmail"];
-        $recepient = $postValues["recepientEmail"];
         $subject = $postValues["subject"];
         $content = $postValues["content"];
 	
