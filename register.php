@@ -1,5 +1,5 @@
 <?php
-require 'init.php';
+require 'controllers/init.php';
 if(isset($_POST['register'])) {
     $stmt = $conn->prepare('insert into users(username, password, email) values(:username, :password, :email)');
 	$stmt->bindValue('username', $_POST['username']);

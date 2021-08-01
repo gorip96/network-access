@@ -1,6 +1,6 @@
 <?php
 session_start();
-require 'init.php';
+require 'controllers/init.php';
 if(isset($_POST['buttonLogin'])) {
     $stmt = $conn->prepare('select * from users where username = :username');
 	$stmt->bindValue('username', $_POST['username']);

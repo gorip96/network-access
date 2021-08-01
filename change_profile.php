@@ -1,6 +1,6 @@
 <?php
 session_start();
-require 'init.php';
+require 'controllers/init.php';
 
 $stmt = $conn->prepare('select * from users where username = :username');
 $stmt->bindValue('username', $_SESSION['username']);
