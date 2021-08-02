@@ -15,9 +15,11 @@ class MailService
 
     function sendContactMail($postValues)
     {
-        $name = $postValues["userName"];
-        $email = $postValues["userEmail"];
-        $subject = $postValues["subject"];
+        $name = $postValues["username"];
+        $email = $postValues["email"];
+        // $subject = $postValues["subject"];
+        $subject = 'Verify your email';
+	$token = $postValues["token"];
         // $content = $postValues["content"];
         $content = '<!DOCTYPE html>
     <html lang="en">

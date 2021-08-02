@@ -71,6 +71,7 @@ if (isset($_POST['signup-btn'])) {
 
             // TO DO: send verification email to user
             // sendVerificationEmail($email, $token);
+	    sendContactMail($email, $username, $token);
 
             $_SESSION['id'] = $user_id;
             $_SESSION['username'] = $username;
