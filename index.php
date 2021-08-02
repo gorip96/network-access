@@ -64,8 +64,10 @@ $_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
                <thead>
                  <tr>
                    <th>Username</th>
-                   <th>Lastname</th>
-                   <?php if(($_SESSION['isadmin']) == 1) { echo  '<th>Email</th>'; }; ?>
+                   <th>Admin Status</th>
+                   <?php if(($_SESSION['isadmin']) == 1) { echo  '<th>Make / Revoke Admin</th>'; }; ?>
+                   <th>Network Access Status</th>
+                   <?php if(($_SESSION['isadmin']) == 1) { echo  '<th>Suspend / Unsuspend</th>'; }; ?>
                  </tr>
                </thead>
                <tbody>
@@ -73,14 +75,20 @@ $_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
                    <td>John</td>
                    <td>Doe</td>
                    <?php if(($_SESSION['isadmin']) == 1) { echo  '<td>john@example.com</td>'; }; ?>
+                   <td>Doe</td>
+                   <?php if(($_SESSION['isadmin']) == 1) { echo  '<td>john@example.com</td>'; }; ?>
                  </tr>
                  <tr>
                    <td>Mary</td>
                    <td>Moe</td>
                    <?php if(($_SESSION['isadmin']) == 1) { echo  '<td>mary@example.com</td>'; }; ?>
+                   <td>Moe</td>
+                   <?php if(($_SESSION['isadmin']) == 1) { echo  '<td>mary@example.com</td>'; }; ?>
                  </tr>
                  <tr>
                    <td>July</td>
+                   <td>Dooley</td>
+                   <?php if(($_SESSION['isadmin']) == 1) { echo  '<td>july@example.com</td> '; }; ?>
                    <td>Dooley</td>
                    <?php if(($_SESSION['isadmin']) == 1) { echo  '<td>july@example.com</td> '; }; ?>
                  </tr>
