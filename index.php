@@ -59,14 +59,14 @@ if (empty($_SESSION['id'])) {
                  <tr>
                    <th>Firstname</th>
                    <th>Lastname</th>
-                   <th>Email</th>
+                   <?php if(($_SESSION['isadmin']) == 1) { echo  '<th>Email</th>'; } ?>
                  </tr>
                </thead>
                <tbody>
                  <tr>
                    <td>John</td>
                    <td>Doe</td>
-                   <td>john@example.com</td>
+                   <?php if(($_SESSION['isadmin']) == 1) { echo  '<td>john@example.com</td>'; } ?>
                  </tr>
                  <tr>
                    <td>Mary</td>
@@ -76,7 +76,7 @@ if (empty($_SESSION['id'])) {
                  <tr>
                    <td>July</td>
                    <td>Dooley</td>
-                   <td>july@example.com</td>
+                   <?php if(($_SESSION['isadmin']) == 1) { echo  '<td>july@example.com</td> }'; ?>
                  </tr>
                </tbody>
              </table>
