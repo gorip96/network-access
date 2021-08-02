@@ -34,7 +34,15 @@ if (empty($_SESSION['id'])) {
            </div>
          <?php endif;?>  
         <form action="changepassword.php" method="post">
-          <div class="form-group">
+        <!-- Display messages -->
+        <?php if (isset($_SESSION['message'])): ?>
+        <div class="alert <?php echo $_SESSION['type'] ?>">
+          <?php
+            echo $_SESSION['message'];
+            unset($_SESSION['message']);
+            unset($_SESSION['type']);
+          ?>
+        </div>          <div class="form-group">
             <label>Old Password</label>
             <input type="password" name="oldpassword" class="form-control form-control-lg">
           </div>
