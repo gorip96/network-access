@@ -62,15 +62,14 @@ $_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
   </div>
            <div class="container">
              <h2>Users List</h2>
-             <!-- <p>The .table-striped class adds zebra-stripes to a table:</p> -->
              <table class="table table-striped">
                <thead>
                  <tr>
                    <th>Username</th>
                    <th>Admin</th>
                    <?php if(($_SESSION['isadmin']) == 1) { echo  '<th>Make / Revoke Admin</th>'; }; ?>
-                   <th>Network Access Status</th>
-                   <?php if(($_SESSION['isadmin']) == 1) { echo  '<th>Suspend / Unsuspend</th>'; }; ?>
+                   <th>Network Access</th>
+                   <?php if(($_SESSION['isadmin']) == 1) { echo  '<th>Suspend / Unsuspend Access</th>'; }; ?>
                  </tr>
                </thead>
                <tbody>
@@ -78,11 +77,8 @@ $_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
 		$query = "SELECT username, isadmin FROM users";
 		$stmt = $conn->prepare($query);
 		$stmt->execute();
-		// $result = $stmt->fetch(PDO::FETCH_OBJ);
 
-		// while($row = $stmt->execute()){
 		while($row = $stmt->fetch(PDO::FETCH_OBJ)){
-		// $result = $stmt->fetch(PDO::FETCH_OBJ);
 		echo '<tr>';
                 echo '   <td>'.$row->username.'</td>';
                 echo '   <td>';
