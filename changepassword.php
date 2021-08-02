@@ -25,7 +25,7 @@ if (empty($_SESSION['id'])) {
 </head>
 <body>
  <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
-   <a class="navbar-brand" href="index.php">Logo
+   <a class="navbar-brand" href="index.php">
     <img src="IX.png" alt="logo" style="width:40px;">
    </a> 
    <ul class="navbar-nav">
