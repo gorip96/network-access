@@ -1,5 +1,12 @@
 <?php
 require "config.php";
+namespace Phppot;
+
+require_once ("lib/MailService.php");
+$mailService = new MailService();
+if (! empty($_POST['send'])) {
+    $response = $mailService->sendContactMail($_POST);
+}
 
 session_start();
 $username = "";
