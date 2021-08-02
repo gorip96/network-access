@@ -1,20 +1,8 @@
 <?php
-namespace Phppot;
-use \PDO;
-use Phppot\Config;
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;
-use PHPMailer\PHPMailer\SMTP;
-use PHPMailer\PHPMailer\OAuth;
-use League\OAuth2\Client\Provider\Google;
 
 require "config.php";
 
 require_once ("lib/MailService.php");
-$mailService = new MailService();
-if (! empty($_POST['send'])) {
-    $response = $mailService->sendContactMail($_POST);
-}
 
 session_start();
 $username = "";
@@ -80,6 +68,7 @@ if (isset($_POST['signup-btn'])) {
             // TO DO: send verification email to user
             // sendVerificationEmail($email, $token);
 	    sendContactMail($email, $username, $token);
+	    // MailService($email, $username, $token);
 
             $_SESSION['id'] = $user_id;
             $_SESSION['username'] = $username;

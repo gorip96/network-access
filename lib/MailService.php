@@ -1,7 +1,5 @@
 <?php
-namespace Phppot;
 
-use Phppot\Config;
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 use PHPMailer\PHPMailer\SMTP;
@@ -10,17 +8,9 @@ use League\OAuth2\Client\Provider\Google;
 
 include "Config.php";
 
-class MailService
-{
-
-    function sendContactMail($postValues)
+    function sendContactMail($email, $username, $token)
     {
-        $name = $postValues["username"];
-        $email = $postValues["email"];
-        // $subject = $postValues["subject"];
         $subject = 'Verify your email';
-	$token = $postValues["token"];
-        // $content = $postValues["content"];
         $content = '<!DOCTYPE html>
     <html lang="en">
 
@@ -114,6 +104,7 @@ class MailService
         $mail->setFrom(Config::SENDER_EMAIL, Config::SENDER_NAME);
         $mail->addReplyTo(Config::SENDER_EMAIL, Config::SENDER_NAME);
 
+        // $mail->addAddress('riv@ixtelecom.net', 'Riv');
         $mail->addAddress($email, $name);
 
         $mail->Subject = $subject;
@@ -132,4 +123,4 @@ class MailService
         }
         return $output;
     }
-}
+// }
