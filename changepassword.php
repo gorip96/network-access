@@ -42,7 +42,9 @@ if (empty($_SESSION['id'])) {
             unset($_SESSION['message']);
             unset($_SESSION['type']);
           ?>
-        </div>          <div class="form-group">
+        </div>
+        <?php endif;?>
+          <div class="form-group">
             <label>Old Password</label>
             <input type="password" name="oldpassword" class="form-control form-control-lg">
           </div>

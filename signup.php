@@ -35,6 +35,7 @@
             unset($_SESSION['type']);
           ?>
         </div>
+        <?php endif;?>
           <div class="form-group">
             <label>Username</label>
             <input type="text" name="username" class="form-control form-control-lg" value="<?php echo $username; ?>">
