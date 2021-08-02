@@ -153,7 +153,7 @@ if (isset($_POST['changepw-btn'])) {
 	    $stmt->execute();
 
 	    $queryrad = "UPDATE radcheck set value = :password where username = :username";
-	    $stmtrad = $radconn->prepare($query);
+	    $stmtrad = $radconn->prepare($queryrad);
             $stmtrad->bindValue('username', $_SESSION['username']);
 	    $stmtrad->bindValue('password', md5($_POST['password']));
 	    $stmtrad->execute();
