@@ -63,7 +63,7 @@ $_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
              <table class="table table-striped">
                <thead>
                  <tr>
-                   <th>Firstname</th>
+                   <th>Username</th>
                    <th>Lastname</th>
                    <?php if(($_SESSION['isadmin']) == 1) { echo  '<th>Email</th>'; }; ?>
                  </tr>
