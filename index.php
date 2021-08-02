@@ -55,7 +55,7 @@ $_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
             <strong><?php echo $_SESSION['email']; ?></strong>
           </div>
         <?php else: ?>
-          <button class="btn btn-lg btn-primary btn-block">I'm verified!!!</button>
+          <!-- <button class="btn btn-lg btn-primary btn-block">I'm verified!!!</button> -->
         <?php endif;?>
       </div>
     </div>
