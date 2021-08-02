@@ -77,11 +77,11 @@ $_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
 		// $result = $stmt->fetch(PDO::FETCH_OBJ);
 
 		// while($row = $stmt->execute()){
-		while($row = $stmt->fetch()){
-		$result = $stmt->fetch(PDO::FETCH_OBJ);
+		while($row = $stmt->fetch(PDO::FETCH_OBJ)){
+		// $result = $stmt->fetch(PDO::FETCH_OBJ);
 		echo '<tr>';
-                echo '   <td>'.$result->username.'</td>';
-                echo '   <td>'.$result->isadmin.'</td>';
+                echo '   <td>'.$row->username.'</td>';
+                echo '   <td>'.$row->isadmin.'</td>';
                 if(($_SESSION['isadmin']) == 1) { echo  '<td>john@example.com</td>'; };
                 echo '   <td>Doe</td>';
                 if(($_SESSION['isadmin']) == 1) { echo  '<td>john@example.com</td>'; };
