@@ -88,21 +88,6 @@ $_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
                 echo ' </tr>'; 
 		}
 	?>
-                 <tr>
-                   <td>Mary</td>
-                   <td>Moe</td>
-                   <?php if(($_SESSION['isadmin']) == 1) { echo  '<td>mary@example.com</td>'; }; ?>
-                   <td>Moe</td>
-                   <?php if(($_SESSION['isadmin']) == 1) { echo  '<td>mary@example.com</td>'; }; ?>
-                 </tr>
-                 <tr>
-                   <td>July</td>
-                   <td>Dooley</td>
-                   <?php if(($_SESSION['isadmin']) == 1) { echo  '<td>july@example.com</td> '; }; ?>
-                   <td>Dooley</td>
-                   <?php if(($_SESSION['isadmin']) == 1) { echo  '<td>july@example.com</td> '; }; ?>
-                 </tr>
-               </tbody>
              </table>
            </div>
 </body>
