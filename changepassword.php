@@ -17,9 +17,35 @@ if (empty($_SESSION['id'])) {
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css" />
   <link rel="stylesheet" href="main.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   <title>Change Password</title>
 </head>
 <body>
+ <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
+   <a class="navbar-brand" href="index.php">Logo
+    <img src="IX.png" alt="logo" style="width:40px;">
+   </a> 
+   <ul class="navbar-nav">
+     <li class="nav-item">
+       <a class="nav-link" href="#">Link</a>
+     </li>  
+     <li class="nav-item">
+       <a class="nav-link" href="#">Link</a>
+     </li>
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+        Profile
+      </a>
+      <div class="dropdown-menu">
+        <a class="dropdown-item" href="changepassword.php">Change Password</a>
+        <a class="dropdown-item" href="logout.php">Logout</a>
+      </div>
+    </li>   
+  </ul>     
+ </nav>
   <div class="container">
     <div class="row">
       <div class="col-md-4 offset-md-4 form-wrapper auth">
