@@ -83,12 +83,14 @@ $_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
                 echo '   <td>'.$row->username.'</td>';
                 echo '   <td>';
 		if ($row->isadmin == 1 ) {
-		echo '&#x1F7E2;';
+		  echo '&#x1F7E2;</td>';
+		  if(($_SESSION['isadmin']) == 1) {
+		  echo '<button class="btn  btn-primary btn-block" name="makeadmin-btn">Make Admin</button></td>'; };
 		} else {
-		echo '&#x1F534;';
+		  echo '&#x1F534;</td>';
+		  if(($_SESSION['isadmin']) == 1) {
+		  echo '<button class="btn  btn-primary btn-block" name="revokeadmin-btn">Revoke Admin</button></td>'; };
 		};
-		echo '</td>';
-                if(($_SESSION['isadmin']) == 1) { echo  '<td><<button class="btn  btn-primary btn-block">Admin</button></td>'; };
                 echo '   <td>Doe</td>';
                 if(($_SESSION['isadmin']) == 1) { echo  '<td>john@example.com</td>'; };
                 echo ' </tr>'; 
