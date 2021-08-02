@@ -47,7 +47,7 @@ if (empty($_SESSION['id'])) {
             <input type="password" name="passwordConf" class="form-control form-control-lg">
           </div>
           <div class="form-group">
-            <button type="submit" name="reset-btn" class="btn btn-lg btn-block">Sign Up</button>
+            <button type="submit" name="reset-btn" class="btn btn-lg btn-block">Reset Password</button>
           </div>
         </form>
       </div>
