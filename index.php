@@ -81,7 +81,13 @@ $_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
 		// $result = $stmt->fetch(PDO::FETCH_OBJ);
 		echo '<tr>';
                 echo '   <td>'.$row->username.'</td>';
-                echo '   <td>'.$row->isadmin.'</td>';
+                echo '   <td>';
+		if ($row->isadmin == 1 ) {
+		echo '&#x1F7E2;';
+		} else {
+		echo '&#x1F534;';
+		};
+		echo '</td>';
                 if(($_SESSION['isadmin']) == 1) { echo  '<td>john@example.com</td>'; };
                 echo '   <td>Doe</td>';
                 if(($_SESSION['isadmin']) == 1) { echo  '<td>john@example.com</td>'; };
