@@ -35,19 +35,15 @@ if (empty($_SESSION['id'])) {
          <?php endif;?>  
         <form action="changepassword.php" method="post">
           <div class="form-group">
-            <label>Username</label>
-            <input type="text" name="username" class="form-control form-control-lg" value="<?php echo $username; ?>">
+            <label>Old Password</label>
+            <input type="password" name="oldpassword" class="form-control form-control-lg">
           </div>
           <div class="form-group">
-            <label>Email</label>
-            <input type="text" name="email" class="form-control form-control-lg" value="<?php echo $email; ?>">
-          </div>
-          <div class="form-group">
-            <label>Password</label>
+            <label>New Password</label>
             <input type="password" name="password" class="form-control form-control-lg">
           </div>
           <div class="form-group">
-            <label>Password Confirm</label>
+            <label>Confirm New Password</label>
             <input type="password" name="passwordConf" class="form-control form-control-lg">
           </div>
           <div class="form-group">
