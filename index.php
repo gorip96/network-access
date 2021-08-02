@@ -76,7 +76,7 @@ if (empty($_SESSION['id'])) {
                  <tr>
                    <td>July</td>
                    <td>Dooley</td>
-                   <?php if(($_SESSION['isadmin']) == 1) { echo  '<td>july@example.com</td> }'; }; ?>
+                   <?php if(($_SESSION['isadmin']) == 1) { echo  '<td>july@example.com</td> '; }; ?>
                  </tr>
                </tbody>
              </table>
