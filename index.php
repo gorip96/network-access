@@ -12,9 +12,6 @@ if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 
 }
 $_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
 
-$query = "SELECT * from users";
-$stmt = $conn->prepare($query);
-
 <html lang="en">
 <head>
   <meta charset="UTF-8">
