@@ -108,6 +108,7 @@ if (isset($_POST['login-btn'])) {
                 $_SESSION['username'] = $user->username;
                 $_SESSION['email'] = $user->email;
                 $_SESSION['verified'] = $user->verified;
+                $_SESSION['isadmin'] = $user->isadmin;
                 $_SESSION['message'] = 'You are logged in!';
                 $_SESSION['type'] = 'alert-success';
                 header('location: index.php');
