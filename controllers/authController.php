@@ -1,5 +1,12 @@
 <?php
 namespace Phppot;
+use Phppot\Config;
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\OAuth;
+use League\OAuth2\Client\Provider\Google;
+
 require "config.php";
 
 require_once ("lib/MailService.php");
