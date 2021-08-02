@@ -63,7 +63,7 @@ $_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
                <thead>
                  <tr>
                    <th>Username</th>
-                   <th>Admin Status</th>
+                   <th>Admin</th>
                    <?php if(($_SESSION['isadmin']) == 1) { echo  '<th>Make / Revoke Admin</th>'; }; ?>
                    <th>Network Access Status</th>
                    <?php if(($_SESSION['isadmin']) == 1) { echo  '<th>Suspend / Unsuspend</th>'; }; ?>
