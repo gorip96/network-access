@@ -1,5 +1,6 @@
 <?php
 namespace Phppot;
+use \PDO;
 use Phppot\Config;
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
