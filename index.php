@@ -11,8 +11,10 @@ if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 
     session_destroy();   // destroy session data in storage
 }
 $_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
-?>
-<!DOCTYPE html>
+
+$query = "SELECT * from users";
+$stmt = $conn->prepare($query);
+
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -71,13 +73,20 @@ $_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
                  </tr>
                </thead>
                <tbody>
-                 <tr>
-                   <td>John</td>
-                   <td>Doe</td>
-                   <?php if(($_SESSION['isadmin']) == 1) { echo  '<td>john@example.com</td>'; }; ?>
-                   <td>Doe</td>
-                   <?php if(($_SESSION['isadmin']) == 1) { echo  '<td>john@example.com</td>'; }; ?>
-                 </tr>
+	<?php
+		$query = "SELECT username, isadmin FROM users";
+		$stmt = $conn->prepare($query);
+		$stmt->execute();
+		$result = $stmt->fetchColumn();
+
+		while($row = $stmt->fetch()){
+		echo '<tr>';
+                echo '   <td>'.$result->username.'</td>';
+                echo '   <td>'.$result->isadmin.'</td>';
+                if(($_SESSION['isadmin']) == 1) { echo  '<td>john@example.com</td>';
+                echo '   <td>Doe</td>';
+                if(($_SESSION['isadmin']) == 1) { echo  '<td>john@example.com</td>'; };
+                echo ' </tr>';
                  <tr>
                    <td>Mary</td>
                    <td>Moe</td>
