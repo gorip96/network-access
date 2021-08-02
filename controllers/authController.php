@@ -122,3 +122,44 @@ if (isset($_POST['login-btn'])) {
 }
 
 // Change Password
+if (isset($_POST['changepw-btn'])) {
+    if (empty($_POST['oldpassword'])) {
+        $errors['oldpassword'] = 'Old password required';
+    }
+    if (empty($_POST['password'])) {
+        $errors['password'] = 'Password required';
+    }
+    if (isset($_POST['password']) && $_POST['password'] !== $_POST['passwordConf']) {
+        $errors['passwordConf'] = 'The two passwords do not match';
+    }
+
+    $username = $_SESSION['username'];
+    $oldpassword = $_POST['oldpassword'];
+    $password = $_POST['password'];
+    $passwordConf = $_POST['passwordConf'];
+
+    if (count($errors) === 0) {
+	$query = "SELECT * FROM users WHERE username = :username";
+	$stmt = $conn->prepare($query);
+	$stmt->bindValue('username', $_SESSION['username']);
+	$stmt->execute();
+	$user = $stmt->fetch(PDO::FETCH_OBJ); 
+
+	if (password_verify($oldpassword, $user->password)) {
+	    $query = "UPDATE users set password = :password where username = :username";
+	    $stmt = $conn->prepare($query);
+	    $stmt->bindValue('username', $_SESSION['username']);
+	    $stmt->bindValue('password', password_hash($_POST['password'], PASSWORD_BCRYPT));
+	    $stmt->execute;
+ 
+		$_SESSION['message'] = 'Successfully change your password!';
+		$_SESSION['type'] = 'alert-success';
+		header('location: changepassword.php');
+		exit(0); 
+	} else {
+		$errors['login_fail'] = "Old password doesn't match our record";
+	
+  }
+ }
+}
+
