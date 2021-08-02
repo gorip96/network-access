@@ -1,7 +1,13 @@
 <?php
 $dbhost = '';
-$dbport = '3306';
+$dbport = '';
 $dbname = '';
 $dbuser = '';
 $dbpass = '';
+
+$raddbhost = '';
+$raddbport = '';
+$raddbname = '';
+$raddbuser = '';
+$raddbpass = '';
 ?>

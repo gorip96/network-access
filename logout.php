@@ -1,12 +1,9 @@
 <?php
-
 session_start();
-
-//Destroy entire session data.
 session_destroy();
-
-//redirect page to index.php
-header('location:index.php');
-
+unset($_SESSION['id']);
+unset($_SESSION['username']);
+unset($_SESSION['email']);
+unset($_SESSION['verify']);
+header("location: login.php");
 ?>
-
