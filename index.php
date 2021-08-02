@@ -52,8 +52,8 @@ if (empty($_SESSION['id'])) {
     </div>
   </div>
            <div class="container">
-             <h2>Striped Rows</h2>
-             <p>The .table-striped class adds zebra-stripes to a table:</p>
+             <h2>Users List</h2>
+             <!-- <p>The .table-striped class adds zebra-stripes to a table:</p> -->
              <table class="table table-striped">
                <thead>
                  <tr>
