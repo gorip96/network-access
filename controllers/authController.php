@@ -158,6 +158,11 @@ if (isset($_POST['changepw-btn'])) {
 	    $stmtrad->bindValue('password', md5($_POST['password']));
 	    $stmtrad->execute();
  
+                $_SESSION['id'] = $user->id;
+                $_SESSION['username'] = $user->username;
+                $_SESSION['email'] = $user->email;
+                $_SESSION['verified'] = $user->verified;
+                $_SESSION['isadmin'] = $user->isadmin;
 		$_SESSION['message'] = 'Successfully change your password!';
 		$_SESSION['type'] = 'alert-success';
 		header('location: changepassword.php');
