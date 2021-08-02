@@ -66,9 +66,7 @@ if (isset($_POST['signup-btn'])) {
             $user_id = $conn->lastInsertId();
 
             // TO DO: send verification email to user
-            // sendVerificationEmail($email, $token);
 	    sendContactMail($email, $username, $token);
-	    // MailService($email, $username, $token);
 
             $_SESSION['id'] = $user_id;
             $_SESSION['username'] = $username;
@@ -122,3 +120,5 @@ if (isset($_POST['login-btn'])) {
         }
     }
 }
+
+// Change Password

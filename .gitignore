@@ -1,2 +1,5 @@
 lib/Config.php
 controllers/config.php
+vendor/phpmailer/phpmailer/get_oauth_token.php
+lib/Config.php
+controllers/config.php
