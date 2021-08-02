@@ -78,7 +78,7 @@ $_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
 
 		while($row = $stmt->fetch()){
 		echo '<tr>';
-                echo '   <td>'.$result->username.'</td>';
+                echo '   <td> $result->username</td>';
                 echo '   <td>'.$result->isadmin.'</td>';
                 if(($_SESSION['isadmin']) == 1) { echo  '<td>john@example.com</td>'; };
                 echo '   <td>Doe</td>';
