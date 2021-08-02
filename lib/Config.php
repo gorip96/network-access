@@ -12,17 +12,17 @@
 class Config
 {
 
-    const SENDER_NAME = 'IX Telecom';
+    const SENDER_NAME = '';
 
-    const SENDER_EMAIL = 'no-reply@ixtelecom.net';
+    const SENDER_EMAIL = '';
 
-    const OAUTH_USER_EMAIL = 'riv@ixtelecom.net';
+    const OAUTH_USER_EMAIL = '';
 
-    const OAUTH_CLIENT_ID = '1051732325671-rgq3epcurp3v8fmdiovg7ai3grs30gls.apps.googleusercontent.com';
+    const OAUTH_CLIENT_ID = '';
 
-    const OAUTH_SECRET_KEY = 'rBP1ELrVWHOuS9YHQxyoPDJ8';
+    const OAUTH_SECRET_KEY = '';
 
-    const REFRESH_TOKEN = '1//0g4g8hxlkTXLBCgYIARAAGBASNwF-L9Ir0xfmT5uries1ivxC1yGn0B70444exVmFvROTBnDxvr3puxrC-3gpUmyTO1-1I5sYSpU';
+    const REFRESH_TOKEN = '';
 
     const SMTP_HOST = 'smtp.gmail.com';
 
