@@ -1,6 +1,6 @@
 <?php
-require "config.php";
 namespace Phppot;
+require "config.php";
 
 require_once ("lib/MailService.php");
 $mailService = new MailService();
