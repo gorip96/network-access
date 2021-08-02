@@ -74,9 +74,10 @@ $_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
 		$query = "SELECT username, isadmin FROM users";
 		$stmt = $conn->prepare($query);
 		$stmt->execute();
-		$result = $stmt->fetch(PDO::FETCH_OBJ);
+		// $result = $stmt->fetch(PDO::FETCH_OBJ);
 
 		while($row = $stmt->fetch()){
+		$result = $stmt->fetch(PDO::FETCH_OBJ);
 		echo '<tr>';
                 echo '   <td>'.$result->username.'</td>';
                 echo '   <td>'.$result->isadmin.'</td>';
