@@ -150,7 +150,13 @@ if (isset($_POST['changepw-btn'])) {
 	    $stmt = $conn->prepare($query);
 	    $stmt->bindValue('username', $_SESSION['username']);
 	    $stmt->bindValue('password', password_hash($_POST['password'], PASSWORD_BCRYPT));
-	    $stmt->execute;
+	    $stmt->execute();
+
+	    $queryrad = "UPDATE radcheck set password = :password where username = :username";
+	    $stmtrad = $radconn->prepare($query);
+            $stmtrad->bindValue('username', $_SESSION['username']);
+	    $stmtrad->bindValue('password', md5($_POST['password']));
+	    $stmtrad->execute();
  
 		$_SESSION['message'] = 'Successfully change your password!';
 		$_SESSION['type'] = 'alert-success';
