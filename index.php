@@ -88,7 +88,7 @@ $_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
 		echo '&#x1F534;';
 		};
 		echo '</td>';
-                if(($_SESSION['isadmin']) == 1) { echo  '<td>john@example.com</td>'; };
+                if(($_SESSION['isadmin']) == 1) { echo  '<td><<button class="btn  btn-primary btn-block">Admin</button></td>'; };
                 echo '   <td>Doe</td>';
                 if(($_SESSION['isadmin']) == 1) { echo  '<td>john@example.com</td>'; };
                 echo ' </tr>'; 
