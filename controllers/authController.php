@@ -34,7 +34,6 @@ if (isset($_POST['signup-btn'])) {
     $username = $_POST['username'];
     $email = $_POST['email'];
     $token = bin2hex(random_bytes(50)); // generate unique token
-    // $password = password_hash($_POST['password'], PASSWORD_BCRYPT); //encrypt password
     $password = $_POST['password'];
 
     // Check if email already exists
@@ -49,14 +48,11 @@ if (isset($_POST['signup-btn'])) {
 
     if (count($errors) === 0) {
         $query = "insert into users(username, password, email, token) values(:username, :password, :email, :token)";
-        // $query = "INSERT INTO users SET username=?, email=?, token=?, password=?";
         $stmt = $conn->prepare($query);
 	$stmt->bindValue('username', $_POST['username']);
 	$stmt->bindValue('password', password_hash($_POST['password'], PASSWORD_BCRYPT));
 	$stmt->bindValue('email', $_POST['email']);
 	$stmt->bindValue('token', $token);
-        // $stmt->bind_param('ssss', $username, $email, $token, $password);
-	// $stmt->execute();     
 	$result = $stmt->execute();
 
 	$query = "insert into radcheck(username,attribute,op,value) values(:username, 'MD5-Password', ':=', :password)";
@@ -72,8 +68,6 @@ if (isset($_POST['signup-btn'])) {
 
         if ($result) {
             $user_id = $conn->lastInsertId();
-            // $user_id = $stmt->insert_id;
-            // $stmt->close();
 
             // TO DO: send verification email to user
             // sendVerificationEmail($email, $token);
