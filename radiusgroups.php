@@ -90,7 +90,12 @@ if (empty($_SESSION['id'])) {
 	echo '            <th>Attribute</th><th>Op</th><th>Value</th><th></th>';
 	echo '          </tr></thead>';
 	echo '		<tbody><tr>';
-	echo '            <td>1</td><td>2</td><td>3</td><td>Del Check</td>';
+	echo '            <form method="post">';
+	echo '		    <td><input type="text" name="attribute" class="form-control></td>';
+	echo '		    <td><input type="text" name="op" class="form-control></td>';
+	echo '		    <td><input type="text" name="value" class="form-control></td>';
+	echo '		    <td><button type="submit" class="btn  btn-primary btn-block" name="addgroupcheck-btn">Add Group Check</button></td>';
+	echo '		  </form>';
 	echo '		</tr></tbody>';
 	echo '        </table>';
 	// echo '      </div>';
@@ -104,7 +109,12 @@ if (empty($_SESSION['id'])) {
 	echo '            <th>Attribute</th><th>Op</th><th>Value</th><th></th>';
 	echo '          </tr></thead>';
 	echo '		<tbody><tr>';
-	echo '            <td>1</td><td>2</td><td>3</td><td>Del Reply</td>';
+	echo '            <form method="post">';
+	echo '		    <td><input type="text" name="attribute" class="form-control></td>';
+	echo '		    <td><input type="text" name="op" class="form-control></td>';
+	echo '		    <td><input type="text" name="value" class="form-control></td>';
+	echo '		    <td><button type="submit" class="btn  btn-primary btn-block" name="addgroupreply-btn">Add Group Reply</button></td>';
+	echo '		  </form>';
 	echo '		</tr></tbody>';
 	echo '        </table>';
 	// echo '      </div>';
