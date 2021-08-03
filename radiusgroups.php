@@ -78,7 +78,17 @@ if (empty($_SESSION['id'])) {
 	while($row = $stmt->fetch(PDO::FETCH_OBJ)){
 	echo '<h3>'.$row->groups.'</h3>';
 	echo '<h5>Group Check</h5>';
+	echo '<table class="table table-striped">';
+	echo '  <thead><tr>';
+	echo '    <th>Attribute</th><th>Op</th><th>Value</th>';
+	echo '  </tr></thead>';
+	echo '</table>';
 	echo '<h5>Group Reply</h5>';
+	echo '<table class="table table-striped">';
+	echo '  <thead><tr>';
+	echo '    <th>Attribute</th><th>Op</th><th>Value</th>';
+	echo '  </tr></thead>';
+	echo '</table>';
 	}
 ?>
   </div>
