@@ -104,7 +104,7 @@ if (empty($_SESSION['id'])) {
 	// echo '      </div>';
 	echo '    </div>';
 	echo '  </div>';
-	echo '</div>'; */
+	echo '</div>';
 	echo '<h5>Group Check</h5>';
 	echo '<table class="table table-striped">';
 	echo '  <thead><tr>';
