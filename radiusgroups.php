@@ -77,8 +77,8 @@ if (empty($_SESSION['id'])) {
 
 	while($row = $stmt->fetch(PDO::FETCH_OBJ)){
 	echo '<div class="row">';
-	echo '<div><h3>'.$row->groups.'</h3></div><div></div>';
-	echo '<div><button type="submit" class="btn btn-primary btn-block" name="newgroupcheck-btn">New Group Check</button></div><div></div>';
+	echo '<div><h3>'.$row->groups.'</h3></div><div><pre>     </pre></div>';
+	echo '<div><button type="submit" class="btn btn-primary btn-block" name="newgroupcheck-btn">New Group Check</button></div><div><pre>     </pre></div>';
 	echo '<div><button type="submit" class="btn btn-primary btn-block" name="newgroupreply-btn">New Group Reply</button></div>';
 	echo '</div>';
 	echo '<h5>Group Check</h5>';
