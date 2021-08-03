@@ -24,7 +24,7 @@ if (empty($_SESSION['id'])) {
   <title>Change Password</title>
 </head>
 <body>
-<?php include"navbar.php"; ?>
+<?php include "navbar.php"; ?>
   <div class="container">
     <div class="row">
       <div class="col-md-4 offset-md-4 form-wrapper auth">

@@ -23,7 +23,6 @@ if (empty($_SESSION['id'])) {
   <title>Radius Groups Templates</title>
 </head>
 <body>
-<?php include"navbar.php"; ?>
 <?php include "navbar.php"; ?>
   <div class="container">
     <div class="row">
