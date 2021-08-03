@@ -79,6 +79,11 @@ $_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
 		$stmt->execute();
 
 		while($row = $stmt->fetch(PDO::FETCH_OBJ)){
+			$queryrug = "SELECT * FROM radusergroup WHERE username = :username AND groupname = 'Disabled Users'";
+			$stmtrug = $radconn->prepare($queryrug);
+			$stmtrug->bindValue('username', $row->username);
+			$stmtrug->execute();
+			$resultrug = $stmtrug->fetchColumn();			
 		echo '<tr>';
                 echo '   <td>'.$row->username.'</td>';
                 echo '   <td>';
@@ -91,9 +96,14 @@ $_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
 		  if(($_SESSION['isadmin']) == 1) {
 		  echo '<td><button class="btn  btn-primary btn-block" name="makeadmin-btn">Make Admin</button></td>'; };
 		};
-                echo '   <td>Doe</td>';
-                if(($_SESSION['isadmin']) == 1) { echo  '<td>john@example.com</td>'; };
+		echo '   <td>';
+		if ($resultrug == 0) {
+		  echo '&#x1F7E2;</td>';
+                } else {
+		  echo '&#x1F534;</td>'; }
+		if(($_SESSION['isadmin']) == 1) { echo  '<td>john@example.com</td>'; };
                 echo ' </tr>'; 
+		
 		}
 	?>
              </table>
