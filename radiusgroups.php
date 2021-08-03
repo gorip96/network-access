@@ -85,7 +85,7 @@ if (empty($_SESSION['id'])) {
 	// echo '  <div class="col">'; */
 	echo '    <div class="collapse" id="newgroupcheck-'.$row->id.'">';
 	// echo '      <div>';
-	echo '        <table class="table>';
+	echo '        <table class="table">';
 	echo '          <thead><tr>';
 	echo '            <th>Attribute</th><th>Op</th><th>Value</th><th></th>';
 	echo '          </tr></thead>';
@@ -96,7 +96,7 @@ if (empty($_SESSION['id'])) {
 	// echo '  <div class="col">';
 	echo '    <div class="collapse" id="newgroupreply-'.$row->id.'">';
 	// echo '      <div>';
-	echo '        <table class="table>';
+	echo '        <table class="table">';
 	echo '          <thead><tr>';
 	echo '            <th>Attribute</th><th>Op</th><th>Value</th><th></th>';
 	echo '          </tr></thead>';
