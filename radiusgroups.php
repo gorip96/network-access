@@ -91,8 +91,9 @@ if (empty($_SESSION['id'])) {
 	echo '          </tr></thead>';
 	echo '		<tbody><tr>';
 	echo '            <form method="post">';
+	echo '		    <input type="hidden" name="radgroup" value="'.$row->groups.'">';
 	echo '		    <td><input type="text" name="attribute" class="form-control"></td>';
-	echo '		    <td><input type="text" name="op" class="form-control"></td>';
+	echo '		    <td><input type="text" size="2" name="op" class="form-control"></td>';
 	echo '		    <td><input type="text" name="value" class="form-control"></td>';
 	echo '		    <td><button type="submit" class="btn  btn-primary btn-block" name="addgroupcheck-btn">Add Group Check</button></td>';
 	echo '		  </form>';
@@ -110,8 +111,9 @@ if (empty($_SESSION['id'])) {
 	echo '          </tr></thead>';
 	echo '		<tbody><tr>';
 	echo '            <form method="post">';
+	echo '		    <input type="hidden" name="radgroup" value="'.$row->groups.'">';
 	echo '		    <td><input type="text" name="attribute" class="form-control"></td>';
-	echo '		    <td><input type="text" name="op" class="form-control"></td>';
+	echo '		    <td><input type="text" size="2" name="op" class="form-control"></td>';
 	echo '		    <td><input type="text" name="value" class="form-control"></td>';
 	echo '		    <td><button type="submit" class="btn  btn-primary btn-block" name="addgroupreply-btn">Add Group Reply</button></td>';
 	echo '		  </form>';

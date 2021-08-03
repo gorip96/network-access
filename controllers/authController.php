@@ -258,3 +258,48 @@ if (isset($_POST['newgroup-btn'])) {
         exit(0);
 
 }
+
+// Add group check
+
+if (isset($_POST['addgroupcheck-btn'])) {
+
+
+//   $radgroup = $_POST['radgroup'];
+
+   $query = "INSERT INTO radgroupcheck(groupname,attribute,op,value) VALUES(:groupname, :attribute, :op, :value)";
+   $stmt = $radconn->prepare($query);
+   $stmt->bindValue('radgroup', $_POST['radgroup']);
+   $stmt->bindValue('attribute', $_POST['attribute']);
+   $stmt->bindValue('op', $_POST['op']);
+   $stmt->bindValue('value', $_POST['value']);
+   $stmt->execute();
+
+        $_SESSION['message'] = 'Success!';
+        $_SESSION['type'] = 'alert-success';
+        header('location: radiusgroups.php');
+        exit(0);
+
+}
+
+
+// Add group reply
+
+if (isset($_POST['addgroupreply-btn'])) {
+
+
+//   $radgroup = $_POST['radgroup'];
+
+   $query = "INSERT INTO radgroupreply(groupname,attribute,op,value) VALUES(:groupname, :attribute, :op, :value)";
+   $stmt = $radconn->prepare($query);
+   $stmt->bindValue('radgroup', $_POST['radgroup']);
+   $stmt->bindValue('attribute', $_POST['attribute']);
+   $stmt->bindValue('op', $_POST['op']);
+   $stmt->bindValue('value', $_POST['value']);
+   $stmt->execute();
+
+        $_SESSION['message'] = 'Success!';
+        $_SESSION['type'] = 'alert-success';
+        header('location: radiusgroups.php');
+        exit(0);
+
+}
