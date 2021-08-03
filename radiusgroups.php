@@ -69,9 +69,18 @@ if (empty($_SESSION['id'])) {
     <br>
   </div>
   <div class="container">
-    <h3>Group Name</h3>
-    <h5>Group Check</h5>
-    <h5>Group Reply</h5>
+<?php
+
+	$query = "SELECT * FROM radiusgroups";
+	$stmt->prepare($query);
+	$stmt->execute();
+
+	while($row = $stmt->fetch(PDO::FETCH_OBJ)){
+	echo '<h3>'.$row->groups.'</h3>';
+	echo '<h5>Group Check</h5>';
+	echo '<h5>Group Reply</h5>';
+	}
+?>
   </div>
 </body>
 </html>
