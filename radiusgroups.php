@@ -76,11 +76,16 @@ if (empty($_SESSION['id'])) {
 	$stmt->execute();
 
 	while($row = $stmt->fetch(PDO::FETCH_OBJ)){
-	echo '<div class="row">';
-	echo '<div><h3>'.$row->groups.'</h3></div><div><pre>     </pre></div>';
-	echo '<div><button type="submit" class="btn btn-primary btn-block" name="newgroupcheck-btn">New Group Check</button></div><div><pre>     </pre></div>';
-	echo '<div><button type="submit" class="btn btn-primary btn-block" name="newgroupreply-btn">New Group Reply</button></div>';
-	echo '</div>';
+	// echo '<div class="row">';
+	echo '<p>';
+	echo '<h3>'.$row->groups.'</h3>';
+	echo '<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#newgroupcheck" aria-expanded="false" aria-controls="newgroupcheck">New Group Check</button>';
+	echo '<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#newgroupreply" aria-expanded="false" aria-controls="newgroupreply">New Group Check</button>';
+	// echo '<div><h3>'.$row->groups.'</h3></div><div><pre>     </pre></div>';
+	// echo '<div><button type="submit" class="btn btn-primary btn-block" name="newgroupcheck-btn">New Group Check</button></div><div><pre>     </pre></div>';
+	// echo '<div><button type="submit" class="btn btn-primary btn-block" name="newgroupreply-btn">New Group Reply</button></div>';
+	// echo '</div>';
+	echo '</p>';
 	echo '<h5>Group Check</h5>';
 	echo '<table class="table table-striped">';
 	echo '  <thead><tr>';
