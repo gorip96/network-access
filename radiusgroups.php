@@ -83,8 +83,10 @@ if (empty($_SESSION['id'])) {
 	echo '</p>';
 	echo '<div class="row">';
 	echo '<div class="col"><div class="collapse" id="newgroupcheck-'.$row->id.'">';
+	echo '<div>Test 1</div>';
 	echo '</div></div>';
 	echo '<div class="col"><div class="collapse" id="newgroupreply-'.$row->id.'">';
+	echo '<div>Test 2</div>';
 	echo '</div></div>';
 	echo '</div>';
 	echo '<h5>Group Check</h5>';
