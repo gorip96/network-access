@@ -59,7 +59,7 @@ if (empty($_SESSION['id'])) {
     <div class="float-right">
       <button class="btn btn-primary btn-block" name="newgroup-btn">Add Group</button><br>
 	<div class="row">
-	  <div><label>Group Name</label></div>
+	  <div><span class="align-middle"><label>Group Name</label></span></div>
 	  <div><input type="text" name="radgroup" class="form-control"></div>
 	  <div><button type="submit" class="btn btn-primary btn-block" name="newgroup-btn">Add Group</button></div>
 	</div>
