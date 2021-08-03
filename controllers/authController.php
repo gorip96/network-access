@@ -231,7 +231,7 @@ if (isset($_POST['raddisable-btn'])) {
    
    $username = $_POST['update-user'];
 
-   $query = "insert into radusergroup(username,groupname,priority) values(:username, 'Disabled Users', '99')";
+   $query = "INSERT INTO radusergroup(username,groupname,priority) VALUES(:username, 'Disabled Users', '99')";
    $stmt = $radconn->prepare($query);
    $stmt->bindValue('username', $_POST['update-user']);
    $stmt->execute();
@@ -240,4 +240,21 @@ if (isset($_POST['raddisable-btn'])) {
         $_SESSION['type'] = 'alert-success';
         header('location: index.php');
         exit(0);
+}
+
+// Add radius group
+if (isset($_POST['newgroup-btn'])) {
+
+   $radgroup = $_POST['radgroup'];
+
+   $query = "INSERT INTO radiusgroups(groups) VALUES(:radgroup)";
+   $stmt = $conn->prepare($query);
+   $stmt->bindValue('radgroup', $_POST['radgroup']);
+   $stmt->execute();
+
+        $_SESSION['message'] = 'Success!';
+        $_SESSION['type'] = 'alert-success';
+        header('location: radiusgroups.php');
+        exit(0);
+
 }
