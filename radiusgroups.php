@@ -136,7 +136,7 @@ if (empty($_SESSION['id'])) {
 	while($rowrgc = $stmt->fetch(PDO::FETCH_OBJ)){
 	echo '            <form method="post">';
 	echo '		    <input type="hidden" name="radgroup" value="'.$row->groups.'">';
-	echo '		    <input type="hidden" name="attribute" value="'.$rowrgr->attribute.'">';
+	echo '		    <input type="hidden" name="attribute" value="'.$rowrgc->attribute.'">';
 	echo '		    <td>'.$rowrgc->attribute.'</td>';
 	echo '		    <td>'.$rowrgc->op.'</td>';
 	echo '		    <td>'.$rowrgc->value.'</td>';
