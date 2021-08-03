@@ -62,6 +62,13 @@ if (empty($_SESSION['id'])) {
 	  <div><h4>Group Name </h4></div>
 	  <div>  <input type="text" name="radgroup" class="form-control"></div>
 	  <div>  <button type="submit" class="btn btn-primary btn-block" name="newgroup-btn">Add Group</button></div>
+	     <table>
+                 <tr>
+                   <td>Username</td>
+                   <td>Admin</td>
+		   <td>Button</td>
+		 </tr>
+	     </table>
 	</div>
     </div>
     <br>
