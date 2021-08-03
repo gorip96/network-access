@@ -190,3 +190,20 @@ if (isset($_POST['makeadmin-btn'])) {
         header('location: index.php');
         exit(0);
 }
+
+
+// Revoke admin
+if (isset($_POST['revokeadmin-btn'])) {
+   
+   $username = $_POST['update-user'];
+
+   $query = "UPDATE users SET isadmin = '0' where username = :username";
+   $stmt = $conn->prepare($query);
+   $stmt->bindValue('username', $_POST['update-user']);
+   $stmt->execute();
+
+        $_SESSION['message'] = 'Success!';
+        $_SESSION['type'] = 'alert-success';
+        header('location: index.php');
+        exit(0);
+}
