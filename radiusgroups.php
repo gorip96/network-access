@@ -128,12 +128,12 @@ if (empty($_SESSION['id'])) {
 	echo '  <thead><tr>';
 	echo '    <th>Attribute</th><th>Op</th><th>Value</th><th>Delete</th>';
 	echo '  </tr></thead>';
-/*	echo '		<tbody><tr>';
-	$query = "SELECT * FROM radgroupcheck WHERE groupname = :groupname";
-	$stmt = $radconn->prepare($query);
-	$stmt->bindValue('groupname', $row->groups);
-	$stmt->execute();
-	while($rowrgc = $stmt->fetch(PDO::FETCH_OBJ)){
+	echo '		<tbody><tr>';
+	$queryrgc = "SELECT * FROM radgroupcheck WHERE groupname = :groupname";
+	$stmtrgc = $radconn->prepare($queryrgc);
+	$stmtrgc->bindValue('groupname', $row->groups);
+	$stmtrgc->execute();
+	while($rowrgc = $stmtrgc->fetch(PDO::FETCH_OBJ)){
 	echo '            <form method="post">';
 	echo '		    <input type="hidden" name="radgroup" value="'.$row->groups.'">';
 	echo '		    <input type="hidden" name="attribute" value="'.$rowrgc->attribute.'">';
@@ -143,19 +143,19 @@ if (empty($_SESSION['id'])) {
 	echo '		    <td><button type="submit" class="btn  btn-primary btn-block" name="delgroupcheck-btn">Delete</button></td>';
 	echo '		  </form>';
 	}
-	echo '		</tr></tbody>'; */
+	echo '		</tr></tbody>';
 	echo '</table>';
 	echo '<h5>Group Reply</h5>';
 	echo '<table class="table table-striped">';
 	echo '  <thead><tr>';
 	echo '    <th>Attribute</th><th>Op</th><th>Value</th><th>Delete</th>';
 	echo '  </tr></thead>';
-/*	echo '		<tbody><tr>';
-	$query = "SELECT * FROM radgroupreply WHERE groupname = :groupname";
-	$stmt = $radconn->prepare($query);
-	$stmt->bindValue('groupname', $row->groups);
-	$stmt->execute();
-	while($rowrgr = $stmt->fetch(PDO::FETCH_OBJ)){
+	echo '		<tbody><tr>';
+	$queryrgr = "SELECT * FROM radgroupreply WHERE groupname = :groupname";
+	$stmtrgr = $radconn->prepare($queryrgr);
+	$stmtrgr->bindValue('groupname', $row->groups);
+	$stmtrgr->execute();
+	while($rowrgr = $stmtrgr->fetch(PDO::FETCH_OBJ)){
 	echo '            <form method="post">';
 	echo '		    <input type="hidden" name="radgroup" value="'.$row->groups.'">';
 	echo '		    <input type="hidden" name="attribute" value="'.$rowrgr->attribute.'">';
@@ -165,7 +165,7 @@ if (empty($_SESSION['id'])) {
 	echo '		    <td><button type="submit" class="btn  btn-primary btn-block" name="delgroupreply-btn">Delete</button></td>';
 	echo '		  </form>';
 	}
-	echo '		</tr></tbody>'; */
+	echo '		</tr></tbody>';
 	echo '</table>';
 	}
 ?>
