@@ -57,7 +57,7 @@ if (isset($_POST['signup-btn'])) {
 	$stmtradcheck->bindValue('password', md5($_POST['password']));
 	$stmtradcheck->execute();
 
-	$query = "insert into radusergroup(username,groupname,priority) values(:username, 'Disabled Users', '1')";
+	$query = "insert into radusergroup(username,groupname,priority) values(:username, 'Disabled Users', '99')";
 	$stmtradusergroup = $radconn->prepare($query);
 	$stmtradusergroup->bindValue('username', $_POST['username']);
 	$stmtradusergroup->execute();
