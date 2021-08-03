@@ -183,6 +183,7 @@ if (isset($_POST['makeadmin-btn'])) {
    $query = "UPDATE users SET isadmin = '1' where username = :username";
    $stmt = $conn->prepare($query);
    $stmt->bindValue('username', $_POST['update-user']);
+   $stmt->execute();
 
         $_SESSION['message'] = 'Success!';
         $_SESSION['type'] = 'alert-success';
