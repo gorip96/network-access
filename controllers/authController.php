@@ -207,3 +207,37 @@ if (isset($_POST['revokeadmin-btn'])) {
         header('location: index.php');
         exit(0);
 }
+
+
+// Enable radius
+if (isset($_POST['radenable-btn'])) {
+   
+   $username = $_POST['update-user'];
+
+   $query = "DELETE FROM radusergroup WHERE username = :username AND groupname = 'Disabled Users'";
+   $stmt = $radconn->prepare($query);
+   $stmt->bindValue('username', $_POST['update-user']);
+   $stmt->execute();
+
+        $_SESSION['message'] = 'Success!';
+        $_SESSION['type'] = 'alert-success';
+        header('location: index.php');
+        exit(0);
+}
+
+
+// Disable radius
+if (isset($_POST['raddisable-btn'])) {
+   
+   $username = $_POST['update-user'];
+
+   $query = "insert into radusergroup(username,groupname,priority) values(:username, 'Disabled Users', '99')";
+   $stmt = $radconn->prepare($query);
+   $stmt->bindValue('username', $_POST['update-user']);
+   $stmt->execute();
+
+        $_SESSION['message'] = 'Success!';
+        $_SESSION['type'] = 'alert-success';
+        header('location: index.php');
+        exit(0);
+}
