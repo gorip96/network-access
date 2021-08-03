@@ -132,7 +132,7 @@ if (empty($_SESSION['id'])) {
 	$query = "SELECT * FROM radgroupcheck WHERE groupname = :groupname";
 	$stmt = $radconn->prepare($query);
 	$stmt->bindValue('groupname', $row->groups);
-	// $stmt->execute();
+	$stmt->execute();
 	while($rowrgc = $stmt->fetch(PDO::FETCH_OBJ)){
 	echo '            <form method="post">';
 	echo '		    <input type="hidden" name="radgroup" value="'.$row->groups.'">';
