@@ -82,26 +82,26 @@ if (empty($_SESSION['id'])) {
 	echo '<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#newgroupreply-'.$row->id.'" aria-expanded="false" aria-controls="newgroupreply-'.$row->id.'">New Group Reply</button>';
 	echo '</p>';
 /*	// echo '<div class="row">';
-	// echo '  <div class="col">';
+	// echo '  <div class="col">'; */
 	echo '    <div class="collapse" id="newgroupcheck-'.$row->id.'">';
-	echo '      <div>';
+	// echo '      <div>';
 	echo '        <table class="table>';
 	echo '          <thead><tr>';
 	echo '            <th>Attribute</th><th>Op</th><th>Value</th><th></th>';
 	echo '          </tr></thead>';
 	echo '        </table>';
-	echo '      </div>';
+	// echo '      </div>';
 	echo '    </div>';
 	// echo '  </div>';
 	// echo '  <div class="col">';
 	echo '    <div class="collapse" id="newgroupreply-'.$row->id.'">';
-	echo '      <div>';
+	// echo '      <div>';
 	echo '        <table class="table>';
 	echo '          <thead><tr>';
 	echo '            <th>Attribute</th><th>Op</th><th>Value</th><th></th>';
 	echo '          </tr></thead>';
 	echo '        </table>';
-	echo '      </div>';
+	// echo '      </div>';
 	echo '    </div>';
 	// echo '  </div>';
 	// echo '</div>'; */
