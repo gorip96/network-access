@@ -128,7 +128,7 @@ if (empty($_SESSION['id'])) {
 	echo '  <thead><tr>';
 	echo '    <th>Attribute</th><th>Op</th><th>Value</th><th>Delete</th>';
 	echo '  </tr></thead>';
-	echo '		<tbody><tr>';
+/*	echo '		<tbody><tr>';
 	$query = "SELECT * FROM radgroupcheck WHERE groupname = :groupname";
 	$stmt = $radconn->prepare($query);
 	$stmt->bindValue('groupname', $row->groups);
@@ -143,14 +143,14 @@ if (empty($_SESSION['id'])) {
 	echo '		    <td><button type="submit" class="btn  btn-primary btn-block" name="delgroupcheck-btn">Delete</button></td>';
 	echo '		  </form>';
 	}
-	echo '		</tr></tbody>';
+	echo '		</tr></tbody>'; */
 	echo '</table>';
 	echo '<h5>Group Reply</h5>';
 	echo '<table class="table table-striped">';
 	echo '  <thead><tr>';
 	echo '    <th>Attribute</th><th>Op</th><th>Value</th><th>Delete</th>';
 	echo '  </tr></thead>';
-	echo '		<tbody><tr>';
+/*	echo '		<tbody><tr>';
 	$query = "SELECT * FROM radgroupreply WHERE groupname = :groupname";
 	$stmt = $radconn->prepare($query);
 	$stmt->bindValue('groupname', $row->groups);
@@ -165,7 +165,7 @@ if (empty($_SESSION['id'])) {
 	echo '		    <td><button type="submit" class="btn  btn-primary btn-block" name="delgroupreply-btn">Delete</button></td>';
 	echo '		  </form>';
 	}
-	echo '		</tr></tbody>';
+	echo '		</tr></tbody>'; */
 	echo '</table>';
 	}
 ?>
