@@ -90,23 +90,22 @@ $_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
 		if ($row->isadmin == 1 ) {
 		  echo '&#x1F7E2;</td>';
 		  if(($_SESSION['isadmin']) == 1) {
-		  echo '<td><button class="btn  btn-primary btn-block" name="revokeadmin-btn">Revoke Admin</button></td>'; };
+		  echo '<td><button class="btn  btn-primary btn-block" name="revokeadmin-btn">Revoke Admin</button></td>'; }
 		} else {
 		  echo '&#x1F534;</td>';
 		  if(($_SESSION['isadmin']) == 1) {
-		  echo '<td><button class="btn  btn-primary btn-block" name="makeadmin-btn">Make Admin</button></td>'; };
+		  echo '<td><button class="btn  btn-primary btn-block" name="makeadmin-btn">Make Admin</button></td>'; }
 		};
 		echo '   <td>';
 		if ($resultrug == 0) {
 		  echo '&#x1F7E2;</td>';
 		  if(($_SESSION['isadmin']) == 1) {
-		  echo '<td><button class="btn  btn-primary btn-block" name="revokeadmin-btn">Disable</button></td>'; };
+		  echo '<td><button class="btn  btn-primary btn-block" name="revokeadmin-btn">Disable</button></td>'; }
                 } else {
 		  echo '&#x1F534;</td>'; 
 		  if(($_SESSION['isadmin']) == 1) {
-		  echo '<td><button class="btn  btn-primary btn-block" name="revokeadmin-btn">Enable</button></td>'; };
+		  echo '<td><button class="btn  btn-primary btn-block" name="revokeadmin-btn">Enable</button></td>'; }
 		}
-		// if(($_SESSION['isadmin']) == 1) { echo  '<td>john@example.com</td>'; };
                 echo ' </tr>'; 
 		
 		}
