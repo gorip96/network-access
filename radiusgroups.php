@@ -90,7 +90,7 @@ if (empty($_SESSION['id'])) {
 	echo '            <th>Attribute</th><th>Op</th><th>Value</th><th></th>';
 	echo '          </tr></thead>';
 	echo '		<tbody><tr>';
-	echo '            <th>1</th><th>2/th><th>3</th><th>Del Check</th>';
+	echo '            <th>1</th><th>2</th><th>3</th><th>Del Check</th>';
 	echo '		</tr></tbody>';
 	echo '        </table>';
 	// echo '      </div>';
@@ -104,7 +104,7 @@ if (empty($_SESSION['id'])) {
 	echo '            <th>Attribute</th><th>Op</th><th>Value</th><th></th>';
 	echo '          </tr></thead>';
 	echo '		<tbody><tr>';
-	echo '            <th>1</th><th>2/th><th>3</th><th>Del Reply</th>';
+	echo '            <th>1</th><th>2</th><th>3</th><th>Del Reply</th>';
 	echo '		</tr></tbody>';
 	echo '        </table>';
 	// echo '      </div>';
