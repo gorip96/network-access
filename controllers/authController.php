@@ -268,7 +268,7 @@ if (isset($_POST['addgroupcheck-btn'])) {
 
    $query = "INSERT INTO radgroupcheck(groupname,attribute,op,value) VALUES(:groupname, :attribute, :op, :value)";
    $stmt = $radconn->prepare($query);
-   $stmt->bindValue('radgroup', $_POST['radgroup']);
+   $stmt->bindValue('groupname', $_POST['radgroup']);
    $stmt->bindValue('attribute', $_POST['attribute']);
    $stmt->bindValue('op', $_POST['op']);
    $stmt->bindValue('value', $_POST['value']);
@@ -291,7 +291,7 @@ if (isset($_POST['addgroupreply-btn'])) {
 
    $query = "INSERT INTO radgroupreply(groupname,attribute,op,value) VALUES(:groupname, :attribute, :op, :value)";
    $stmt = $radconn->prepare($query);
-   $stmt->bindValue('radgroup', $_POST['radgroup']);
+   $stmt->bindValue('groupname', $_POST['radgroup']);
    $stmt->bindValue('attribute', $_POST['attribute']);
    $stmt->bindValue('op', $_POST['op']);
    $stmt->bindValue('value', $_POST['value']);
