@@ -72,7 +72,7 @@ if (empty($_SESSION['id'])) {
 <?php
 
 	$query = "SELECT * FROM radiusgroups";
-	$stmt->prepare($query);
+	$stmt = $conn->prepare($query);
 	$stmt->execute();
 
 	while($row = $stmt->fetch(PDO::FETCH_OBJ)){
