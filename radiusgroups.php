@@ -59,9 +59,9 @@ if (empty($_SESSION['id'])) {
     <div class="float-right">
       <a href="#addgroup"class="btn btn-primary btn-block" name="newgroup-btn" data-toggle="collapse">New Group</a><br>
 	<div class="row" id="addgroup">
-	  <div><h3>Group Name </h1></div>
-	  <div>  <input type="text" name="radgroup" class="form-control"></div>
-	  <div>  <button type="submit" class="btn btn-primary btn-block" name="newgroup-btn">Add Group</button></div>
+	  <div class="row"><h3>Group Name </h1></div>
+	  <div class="row">  <input type="text" name="radgroup" class="form-control"></div>
+	  <div class="row">  <button type="submit" class="btn btn-primary btn-block" name="newgroup-btn">Add Group</button></div>
 	</div>
     </div>
     <br>
