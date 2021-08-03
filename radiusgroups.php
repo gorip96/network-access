@@ -81,8 +81,8 @@ if (empty($_SESSION['id'])) {
 	echo '<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#newgroupcheck-'.$row->id.'" aria-expanded="false" aria-controls="newgroupcheck-'.$row->id.'">New Group Check</button>';
 	echo '<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#newgroupreply-'.$row->id.'" aria-expanded="false" aria-controls="newgroupreply-'.$row->id.'">New Group Reply</button>';
 	echo '</p>';
-/*	// echo '<div class="row">';
-	// echo '  <div class="col">'; */
+	echo '<div class="row">';
+	echo '  <div class="col">';
 	echo '    <div class="collapse" id="newgroupcheck-'.$row->id.'">';
 	// echo '      <div>';
 	echo '        <table class="table">';
@@ -92,8 +92,8 @@ if (empty($_SESSION['id'])) {
 	echo '        </table>';
 	// echo '      </div>';
 	echo '    </div>';
-	// echo '  </div>';
-	// echo '  <div class="col">';
+	echo '  </div>';
+	echo '  <div class="col">';
 	echo '    <div class="collapse" id="newgroupreply-'.$row->id.'">';
 	// echo '      <div>';
 	echo '        <table class="table">';
@@ -103,8 +103,8 @@ if (empty($_SESSION['id'])) {
 	echo '        </table>';
 	// echo '      </div>';
 	echo '    </div>';
-	// echo '  </div>';
-	// echo '</div>'; */
+	echo '  </div>';
+	echo '</div>'; */
 	echo '<h5>Group Check</h5>';
 	echo '<table class="table table-striped">';
 	echo '  <thead><tr>';
