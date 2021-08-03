@@ -174,3 +174,18 @@ if (isset($_POST['changepw-btn'])) {
  }
 }
 
+
+// Make admin
+if (isset($_POST['makeadmin-btn'])) {
+   
+   $username = $_POST['update-user'];
+
+   $query = "UPDATE users SET isadmin = '1' where username = :username";
+   $stmt = $conn->prepare($query);
+   $stmt->bindValue('username', $_POST['update-user']);
+
+        $_SESSION['message'] = 'Success!';
+        $_SESSION['type'] = 'alert-success';
+        header('location: index.php');
+        exit(0);
+}
