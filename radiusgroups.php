@@ -76,7 +76,7 @@ if (empty($_SESSION['id'])) {
 	$stmt->execute();
 
 	while($row = $stmt->fetch(PDO::FETCH_OBJ)){
-	echo '<h3>'.$row->groups.'</h3>';
+	echo '<div><h3>'.$row->groups.'</h3></div><div>test</div><div>test2</div>';
 	echo '<h5>Group Check</h5>';
 	echo '<table class="table table-striped">';
 	echo '  <thead><tr>';
