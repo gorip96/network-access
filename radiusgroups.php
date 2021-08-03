@@ -128,22 +128,22 @@ if (empty($_SESSION['id'])) {
 	echo '  <thead><tr>';
 	echo '    <th>Attribute</th><th>Op</th><th>Value</th><th>Delete</th>';
 	echo '  </tr></thead>';
-	echo '		<tbody><tr>';
+	echo '		<tbody>';
 	$queryrgc = "SELECT * FROM radgroupcheck WHERE groupname = :groupname";
 	$stmtrgc = $radconn->prepare($queryrgc);
 	$stmtrgc->bindValue('groupname', $row->groups);
 	$stmtrgc->execute();
 	while($rowrgc = $stmtrgc->fetch(PDO::FETCH_OBJ)){
-	echo '            <form method="post">';
+	echo '            <tr><form method="post">';
 	echo '		    <input type="hidden" name="radgroup" value="'.$row->groups.'">';
 	echo '		    <input type="hidden" name="attribute" value="'.$rowrgc->attribute.'">';
 	echo '		    <td>'.$rowrgc->attribute.'</td>';
 	echo '		    <td>'.$rowrgc->op.'</td>';
 	echo '		    <td>'.$rowrgc->value.'</td>';
 	echo '		    <td><button type="submit" class="btn  btn-primary btn-block" name="delgroupcheck-btn">Delete</button></td>';
-	echo '		  </form>';
+	echo '		  </form></tr>';
 	}
-	echo '		</tr></tbody>';
+	echo '		</tbody>';
 	echo '</table>';
 	echo '<h5>Group Reply</h5>';
 	echo '<table class="table table-striped">';
