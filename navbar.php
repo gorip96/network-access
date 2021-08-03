@@ -3,9 +3,13 @@
     <img src="IX.png" alt="logo" style="width:40px;">
    </a>
    <ul class="navbar-nav">
+<?php
+if ($_SESSION['isadmin'] == 1) {
+	echo '
      <li class="nav-item">
-       <a class="nav-link" href="#">Link</a>
-     </li>
+       <a class="nav-link" href="radiusgroups.php">Radius Groups</a>
+     </li>' }
+?>
      <li class="nav-item">
        <a class="nav-link" href="#">Link</a>
      </li>
