@@ -136,6 +136,7 @@ if (empty($_SESSION['id'])) {
 	while($rowrgc = $stmt->fetch(PDO::FETCH_OBJ)){
 	echo '            <form method="post">';
 	echo '		    <input type="hidden" name="radgroup" value="'.$row->groups.'">';
+	echo '		    <input type="hidden" name="attribute" value="'.$rowrgr->attribute.'">';
 	echo '		    <td>'.$rowrgc->attribute.'</td>';
 	echo '		    <td>'.$rowrgc->op.'</td>';
 	echo '		    <td>'.$rowrgc->value.'</td>';
@@ -149,6 +150,22 @@ if (empty($_SESSION['id'])) {
 	echo '  <thead><tr>';
 	echo '    <th>Attribute</th><th>Op</th><th>Value</th><th>Delete</th>';
 	echo '  </tr></thead>';
+	echo '		<tbody><tr>';
+	$query = "SELECT * FROM radgroupreply WHERE groupname = :groupname";
+	$stmt = $radconn->prepare($query);
+	$stmt->bindValue('groupname', $row->groups);
+	$stmt->execute();
+	while($rowrgr = $stmt->fetch(PDO::FETCH_OBJ)){
+	echo '            <form method="post">';
+	echo '		    <input type="hidden" name="radgroup" value="'.$row->groups.'">';
+	echo '		    <input type="hidden" name="attribute" value="'.$rowrgr->attribute.'">';
+	echo '		    <td>'.$rowrgr->attribute.'</td>';
+	echo '		    <td>'.$rowrgr->op.'</td>';
+	echo '		    <td>'.$rowrgr->value.'</td>';
+	echo '		    <td><button type="submit" class="btn  btn-primary btn-block" name="delgroupreply-btn">Delete</button></td>';
+	echo '		  </form>';
+	}
+	echo '		</tr></tbody>';
 	echo '</table>';
 	}
 ?>
