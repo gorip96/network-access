@@ -7,11 +7,11 @@
 if ($_SESSION['isadmin'] == 1) {
 	echo '
      <li class="nav-item">
-       <a class="nav-link" href="radiusgroups.php">Radius Groups</a>
-     </li>
+       <a class="nav-link" href="radiusgroups.php">Radius Groups</a>';
+/*     </li>
      <li class="nav-item">
-       <a class="nav-link" href="radiusgroupstemplates.php">Radius Groups Templates</a>
-     </li>'; }
+       <a class="nav-link" href="radiusgroupstemplates.php">Radius Groups Templates</a> */
+     echo '</li>'; }
 ?>
      <li class="nav-item">
        <a class="nav-link" href="#">Link</a>

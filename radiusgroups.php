@@ -54,5 +54,12 @@ if (empty($_SESSION['id'])) {
       </div>
     </div>
   </div>
+  <div class="container">
+    <br>
+    <div class="float-right">
+      <button class="btn btn-primary btn-block" name="addgroup-btn">Add Group</button>
+    </div>
+    <br>
+  </div>
 </body>
 </html>
