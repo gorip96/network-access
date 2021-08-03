@@ -8,7 +8,7 @@ if ($_SESSION['isadmin'] == 1) {
 	echo '
      <li class="nav-item">
        <a class="nav-link" href="radiusgroups.php">Radius Groups</a>
-     </li>' }
+     </li>'; }
 ?>
      <li class="nav-item">
        <a class="nav-link" href="#">Link</a>
