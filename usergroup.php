@@ -64,7 +64,7 @@ if (empty($_SESSION['id'])) {
 	while($row = $stmt->fetch(PDO::FETCH_OBJ)){
 	echo '<p>';
 	echo '<h3>'.$row->username.'</h3>';
-	echo '<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#newusergroup-'.$row->id.'" aria-expanded="false" aria-controls="newusergroup-'.$row->id.'">New Group Check</button>';
+	echo '<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#newusergroup-'.$row->id.'" aria-expanded="false" aria-controls="newusergroup-'.$row->id.'">New User Group BBinding</button>';
 	echo '</p>';
 	// echo '<div class="row">';
 	// echo '  <div class="col">';
@@ -78,7 +78,7 @@ if (empty($_SESSION['id'])) {
 	echo '            <form method="post">';
 	echo '		    <input type="hidden" name="username" value="'.$row->username.'">';
 	echo '		    <td><input type="text" name="radgroup" class="form-control"></td>';
-	echo '		    <td><button type="submit" class="btn  btn-primary btn-block" name="addgroupcheck-btn">Add Group Check</button></td>';
+	echo '		    <td><button type="submit" class="btn  btn-primary btn-block" name="addgroupcheck-btn">Add Group</button></td>';
 	echo '		  </form>';
 	echo '		</tr></tbody>';
 	echo '        </table>';
