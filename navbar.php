@@ -7,10 +7,10 @@
 if ($_SESSION['isadmin'] == 1) {
 	echo '
      <li class="nav-item">
-       <a class="nav-link" href="radiusgroups.php">Radius Groups</a>';
+       <a class="nav-link" href="radiusgroups.php">Radius Groups</a>
      </li>
      <li class="nav-item">
-       <a class="nav-link" href="usergroup.php">User Group</a>
+       <a class="nav-link" href="usergroup.php">User Group</a>';
      echo '</li>'; }
 ?>
      <li class="nav-item">
