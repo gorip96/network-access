@@ -81,7 +81,7 @@ if (empty($_SESSION['id'])) {
 	echo '<div class="row">';
 	echo '<div><button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#newgroupcheck-'.$row->id.'" aria-expanded="false" aria-controls="newgroupcheck-'.$row->id.'">New Group Check</button></div>';
 	echo '<div><button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#newgroupreply-'.$row->id.'" aria-expanded="false" aria-controls="newgroupreply-'.$row->id.'">New Group Reply</button></div>';
-	echo '<div><form method="post><input type="hidden" name="radgroup" value="'.$row->groups.'"><button type="submit" class="btn  btn-primary btn-block" name="delgroup-btn">Delete Group</button></form></div>';
+	echo '<div><form method="post"><input type="hidden" name="radgroup" value="'.$row->groups.'"><button type="submit" class="btn  btn-primary btn-block" name="delgroup-btn">Delete Group</button></form></div>';
 	echo '</div></p>';
 	// echo '<div class="row">';
 	// echo '  <div class="col">';
