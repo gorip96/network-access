@@ -61,6 +61,10 @@ if (empty($_SESSION['id'])) {
 	$stmt = $conn->prepare($query);
 	$stmt->execute();
 
+	$querygroups = "SELECT * FROM radiusgroups";
+	$stmtgroups = $conn->prepare($querygroups);
+	$stmtgroups->execute();
+
 	while($row = $stmt->fetch(PDO::FETCH_OBJ)){
 	echo '<p>';
 	echo '<h3>'.$row->username.'</h3>';
@@ -77,8 +81,14 @@ if (empty($_SESSION['id'])) {
 	echo '		<tbody><tr>';
 	echo '            <form method="post">';
 	echo '		    <input type="hidden" name="username" value="'.$row->username.'">';
-	echo '		    <td><input type="text" name="radgroup" class="form-control"></td>';
-	echo '		    <td><button type="submit" class="btn  btn-primary btn-block" name="addgroupcheck-btn">Add Group</button></td>';
+	echo '   	    <select name="radgroup" class="mdb-select md-form">';
+	echo '			<option value="" disabled selected>Choose your option</option>';
+	echo '			<option value="1">Option 1</option>';
+	echo '			<option value="2">Option 2</option>';
+	echo '			<option value="3">Option 3</option>';
+	echo '		    </select>';
+	// echo '		    <td><input type="text" name="radgroup" class="form-control"></td>';
+	echo '		    <td><button type="submit" class="btn  btn-primary btn-block" name="addusergroup-btn">Add Group</button></td>';
 	echo '		  </form>';
 	echo '		</tr></tbody>';
 	echo '        </table>';
@@ -101,8 +111,9 @@ if (empty($_SESSION['id'])) {
 	while($rowrug = $stmtrug->fetch(PDO::FETCH_OBJ)){
 	echo '            <tr><form method="post">';
 	echo '		    <input type="hidden" name="username" value="'.$row->username.'">';
+	echo '		    <input type="hidden" name="groupname" value="'.$rowrug->groupname.'">';
 	echo '		    <td>'.$rowrug->groupname.'</td>';
-	echo '		    <td><button type="submit" class="btn  btn-primary btn-block" name="delgroupcheck-btn">Delete</button></td>';
+	echo '		    <td><button type="submit" class="btn  btn-primary btn-block" name="delusergroup-btn">Delete</button></td>';
 	echo '		  </form></tr>';
 	}
 	echo '		</tbody>';
