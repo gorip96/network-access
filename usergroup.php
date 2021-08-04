@@ -81,7 +81,7 @@ if (empty($_SESSION['id'])) {
 	echo '		<tbody><tr>';
 	echo '            <form method="post">';
 	echo '		    <input type="hidden" name="username" value="'.$row->username.'">';
-	echo '   	    <td><select name="radgroup" class="form-control">';
+	echo '   	    <td><select name="groupname" class="form-control">';
 	echo '			<option value="" disabled selected>Select group to add</option>';
 	while($rowgroups = $stmtgroups->fetch(PDO::FETCH_OBJ)){
 	echo '			<option value="'.$rowgroups->groups.'">'.$rowgroups->groups.'</option>';
