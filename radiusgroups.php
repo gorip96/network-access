@@ -27,6 +27,15 @@ if (empty($_SESSION['id'])) {
   <div class="container">
     <div class="row">
       <div class="col-md-4 offset-md-4 home-wrapper">
+         <?php if (count($errors) > 0): ?>
+           <div class="alert alert-danger">
+             <?php foreach ($errors as $error): ?>
+             <li>
+               <?php echo $error; ?>
+             </li>
+             <?php endforeach;?>
+           </div>
+         <?php endif;?>
 
         <!-- Display messages -->
         <?php if (isset($_SESSION['message'])): ?>
@@ -39,7 +48,7 @@ if (empty($_SESSION['id'])) {
         </div>
         <?php endif;?>
 
-        <h4>Welcome, <?php echo $_SESSION['username']; ?></h4>
+	<h3 class="text-center form-title">Radius Groups</h3>
         <?php if (!$_SESSION['verified']): ?>
           <div class="alert alert-warning alert-dismissible fade show" role="alert">
             You need to verify your email address!
