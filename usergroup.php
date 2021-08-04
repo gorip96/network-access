@@ -65,7 +65,7 @@ if (empty($_SESSION['id'])) {
 	$stmtgroups = $conn->prepare($querygroups);
 	$stmtgroups->execute(); */
 
-	$queryradgroups = "SELECT groupname FROM radusergroup":
+	$queryradgroups = "SELECT groupname FROM radusergroup";
 	$stmtradgroups = $radconn->prepare($queryradgroups);
 	$stmtradgroups->execute()
 
