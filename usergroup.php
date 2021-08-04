@@ -27,6 +27,15 @@ if (empty($_SESSION['id'])) {
   <div class="container">
     <div class="row">
       <div class="col-md-4 offset-md-4 home-wrapper">
+         <?php if (count($errors) > 0): ?>
+           <div class="alert alert-danger">
+             <?php foreach ($errors as $error): ?>
+             <li>
+               <?php echo $error; ?>
+             </li>
+             <?php endforeach;?>
+           </div>
+         <?php endif;?>
 
         <!-- Display messages -->
         <?php if (isset($_SESSION['message'])): ?>
@@ -106,7 +115,7 @@ if (empty($_SESSION['id'])) {
 	echo '    <th>Groups</th><th>Priority</th><th>Delete</th>';
 	echo '  </tr></thead>';
 	echo '		<tbody>';
-	$queryrug = "SELECT * FROM radusergroup WHERE username = :username AND groupname != 'Disabled Users'";
+	$queryrug = "SELECT * FROM radusergroup WHERE username = :username AND groupname != 'Disabled Users' ORDER BY priority";
 	$stmtrug = $radconn->prepare($queryrug);
 	$stmtrug->bindValue('username', $row->username);
 	$stmtrug->execute();
