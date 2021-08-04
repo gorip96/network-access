@@ -399,8 +399,7 @@ if (isset($_POST['delgroupreply-btn'])) {
 if (isset($_POST['addusergroup-btn'])) {
 
     if (isset($_POST['priority']) && $_POST['priority'] < 100) {
-        $errors['priority'] = 'Priority has to be greater than 100';
-	$_SESSION['message'] = "Priority has to be greater than 100";
+        $errors['priority100'] = 'Priority has to be greater than 100';
     }
 
    $querypriority = "SELECT * FROM radusergroup WHERE username = :username AND priority = :priority LIMIT 1";
@@ -410,7 +409,7 @@ if (isset($_POST['addusergroup-btn'])) {
    $stmtpriority->execute();
    $countpriority = $stmtpriority->fetchColumn();
    if ($countpriority > 0) {
-	$errors['priority'] = "Priority have to be unique";
+	$errors['priorityunique'] = "Priority have to be unique";
    }
 
     if (count($errors) === 0) {
