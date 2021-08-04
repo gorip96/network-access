@@ -91,7 +91,7 @@ if (empty($_SESSION['id'])) {
 	echo '<h5>Usergroups</h5>';
 	echo '<table class="table table-striped">';
 	echo '  <thead><tr>';
-	echo '    <th>Attribute</th><th>Op</th><th>Value</th><th>Delete</th>';
+	echo '    <th>Groups</th><th>Delete</th>';
 	echo '  </tr></thead>';
 	echo '		<tbody>';
 	$queryrug = "SELECT * FROM radusergroup WHERE username = :username";
