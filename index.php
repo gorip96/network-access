@@ -8,6 +8,12 @@ if (empty($_SESSION['id'])) {
 if (empty($_SESSION['isadmin'])) {
     $_SESSION['isadmin'] = '0';
 }
+if (empty($_SESSION['username'])) {
+    $_SESSION['username'] = '';
+}
+if (empty($_SESSION['email'])) {
+    $_SESSION['email'] = '';
+}
 if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 900)) {
     // last request was more than 15 minutes ago
     session_unset();     // unset $_SESSION variable for the run-time 
