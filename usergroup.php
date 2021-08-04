@@ -76,7 +76,7 @@ if (empty($_SESSION['id'])) {
 	// echo '      <div>';
 	echo '        <table class="table">';
 	echo '          <thead><tr>';
-	echo '            <th>Groups</th><th>Priodiry</th><th></th>';
+	echo '            <th>Groups</th><th>Priority</th><th></th>';
 	echo '          </tr></thead>';
 	echo '		<tbody><tr>';
 	echo '            <form method="post">';
