@@ -111,7 +111,6 @@ $_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
 		}
                 echo ' </tr>'; 
 		
-		}
 	?>
              </table>
            </div>
