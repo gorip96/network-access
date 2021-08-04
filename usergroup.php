@@ -65,14 +65,6 @@ if (empty($_SESSION['id'])) {
 	$stmtgroups = $conn->prepare($querygroups);
 	$stmtgroups->execute(); 
 
-	/* $queryradgroups = "SELECT groupname FROM radusergroup";
-	$stmtradgroups = $radconn->prepare($queryradgroups);
-	$stmtradgroups->execute();
-
-	$querygroups = "SELECT * FROM radiusgroups WHERE groups NOT IN (".$stmtradgroups->fetch(PDO::FETCH_OBJ).")";
-	$stmtgroups = $conn->prepare($querygroups);
-	$stmtgroups->execute(); */
-
 	while($row = $stmt->fetch(PDO::FETCH_OBJ)){
 	echo '<p>';
 	echo '<h3>'.$row->username.'</h3>';
