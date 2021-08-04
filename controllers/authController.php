@@ -426,9 +426,7 @@ if (isset($_POST['addusergroup-btn'])) {
             header('location: usergroup.php');
             exit(0);
 
-   } else {
-	    $_SESSION['message'] = "Priority have to be unique";
-  }
+   }
 }
 
 
