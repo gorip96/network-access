@@ -108,9 +108,8 @@ $_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
 		  }
 		  if(($_SESSION['isadmin']) == 1) {
 		  echo '<td><form method="post"><input type="hidden" name="delete-user" value="'.$row->username.'"><button type="submit" class="btn  btn-primary btn-block" name="deluser-btn">Delete</button></form></td>'; }
-		}
                 echo ' </tr>'; 
-		
+	}	
 	?>
              </table>
            </div>
