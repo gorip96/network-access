@@ -78,10 +78,11 @@ if (empty($_SESSION['id'])) {
 	while($row = $stmt->fetch(PDO::FETCH_OBJ)){
 	echo '<p>';
 	echo '<h3>'.$row->groups.'</h3>';
-	echo '<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#newgroupcheck-'.$row->id.'" aria-expanded="false" aria-controls="newgroupcheck-'.$row->id.'">New Group Check</button>';
-	echo '<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#newgroupreply-'.$row->id.'" aria-expanded="false" aria-controls="newgroupreply-'.$row->id.'">New Group Reply</button>';
-	echo '<form method="post><input type="hidden" name="radgroup" value="'.$row->groups.'"><button type="submit" class="btn  btn-primary btn-block" name="delgroup-btn">Delete Group</button></form>';
-	echo '</p>';
+	echo '<div class="row">';
+	echo '<div><button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#newgroupcheck-'.$row->id.'" aria-expanded="false" aria-controls="newgroupcheck-'.$row->id.'">New Group Check</button></div>';
+	echo '<div><button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#newgroupreply-'.$row->id.'" aria-expanded="false" aria-controls="newgroupreply-'.$row->id.'">New Group Reply</button></div>';
+	echo '<div><form method="post><input type="hidden" name="radgroup" value="'.$row->groups.'"><button type="submit" class="btn  btn-primary btn-block" name="delgroup-btn">Delete Group</button></form></div>';
+	echo '</div></p>';
 	// echo '<div class="row">';
 	// echo '  <div class="col">';
 	echo '    <div class="collapse" id="newgroupcheck-'.$row->id.'">';
