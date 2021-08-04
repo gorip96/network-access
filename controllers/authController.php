@@ -35,13 +35,14 @@ if (isset($_POST['signup-btn'])) {
     $password = $_POST['password'];
 
     // Check if email already exists
-    $countuser = "SELECT * FROM users WHERE email = :email LIMIT 1";
+    $countuser = "SELECT * FROM users WHERE email = :email OR username = :username LIMIT 1";
     $countstmt = $conn->prepare($countuser);
+    $countstmt->bindValue('username', $_POST['username']);
     $countstmt->bindValue('email', $_POST['email']);
     $countstmt->execute();
     $result = $countstmt->fetchColumn();
     if ($result > 0) {
-        $errors['email'] = "Email already exists";
+        $errors['email'] = "Username or Email already exists";
     }
 
     if (count($errors) === 0) {
