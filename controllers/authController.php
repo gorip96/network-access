@@ -355,8 +355,8 @@ if (isset($_POST['deluser-btn'])) {
 
    $queryrug = "DELETE FROM radusergroup WHERE username = :username";
    $stmtrug = $radconn->prepare($queryrug);
-   $stmt->bindValue('username', $_POST['delete-user']);
-   $stmt->execute();
+   $stmtrug->bindValue('username', $_POST['delete-user']);
+   $stmtrug->execute();
 
         $_SESSION['message'] = 'Success!';
         $_SESSION['type'] = 'alert-success';
