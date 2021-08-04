@@ -384,7 +384,7 @@ if (isset($_POST['delgroup-btn'])) {
    $stmtrgr->execute();
 
    $queryrug = "DELETE FROM radusergroup WHERE groupname = :radgroup";
-   $stmtrug = $raconn->prepare($queryrug);
+   $stmtrug = $radconn->prepare($queryrug);
    $stmtrug->bindValue('radgroup', $_POST['radgroup']);
    $stmtrug->execute();
 
