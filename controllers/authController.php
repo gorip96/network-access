@@ -342,3 +342,24 @@ if (isset($_POST['delusergroup-btn'])) {
         header('location: usergroup.php');
 
 }
+
+
+// Remove User
+
+if (isset($_POST['deluser-btn'])) {
+
+   $query = "DELETE FROM users WHERE username =: username";
+   $stmt = $conn->prepare($query);
+   $stmt->bindValue('username', $_POST['delete-user']);
+   $stmt->execute();
+
+   $queryrug = "DELETE FROM radusergroup WHERE username =: username";
+   $stmtrug = $radconn->prepare($queryrug);
+   $stmt->bindValue('username', $_POST['delete-user']);
+   $stmt->execute();
+
+        $_SESSION['message'] = 'Success!';
+        $_SESSION['type'] = 'alert-success';
+        header('location: index.php');
+
+}
