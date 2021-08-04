@@ -61,7 +61,7 @@ $_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
       </div>
     </div>
   </div>
-        <?php if (!$_SESSION['verified']): ?>
+        <?php if ($_SESSION['verified']): ?>
            <div class="container">
              <h2>Users List</h2>
              <table class="table table-striped">
