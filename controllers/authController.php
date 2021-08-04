@@ -12,7 +12,8 @@ $errors = [];
 $conn = new PDO("mysql:host=$dbhost;dbname=$dbname;port=$dbport", "$dbuser", "$dbpass");
 $radconn = new PDO("mysql:host=$raddbhost;dbname=$raddbname;port=$raddbport", "$raddbuser", "$raddbpass");
 
-// SIGN UP USER
+// Sign Up User
+
 if (isset($_POST['signup-btn'])) {
     if (empty($_POST['username'])) {
         $errors['username'] = 'Username required';
@@ -46,7 +47,7 @@ if (isset($_POST['signup-btn'])) {
     }
 
     if (count($errors) === 0) {
-        $query = "insert into users(username, password, email, token) values(:username, :password, :email, :token)";
+        $query = "INSERT INTO users(username, password, email, token) values(:username, :password, :email, :token)";
         $stmt = $conn->prepare($query);
 	$stmt->bindValue('username', $_POST['username']);
 	$stmt->bindValue('password', password_hash($_POST['password'], PASSWORD_BCRYPT));
@@ -54,13 +55,13 @@ if (isset($_POST['signup-btn'])) {
 	$stmt->bindValue('token', $token);
 	$result = $stmt->execute();
 
-	$query = "insert into radcheck(username,attribute,op,value) values(:username, 'MD5-Password', ':=', :password)";
+	$query = "INSERT INTO radcheck(username,attribute,op,value) values(:username, 'MD5-Password', ':=', :password)";
 	$stmtradcheck = $radconn->prepare($query);
 	$stmtradcheck->bindValue('username', $_POST['username']);
 	$stmtradcheck->bindValue('password', md5($_POST['password']));
 	$stmtradcheck->execute();
 
-	$query = "insert into radusergroup(username,groupname,priority) values(:username, 'Disabled Users', '99')";
+	$query = "INSERT INTO radusergroup(username,groupname,priority) values(:username, 'Disabled Users', '99')";
 	$stmtradusergroup = $radconn->prepare($query);
 	$stmtradusergroup->bindValue('username', $_POST['username']);
 	$stmtradusergroup->execute();
@@ -84,7 +85,8 @@ if (isset($_POST['signup-btn'])) {
     }
 }
 
-// LOGIN
+// Login
+
 if (isset($_POST['login-btn'])) {
     if (empty($_POST['username'])) {
         $errors['username'] = 'Username or email required';
@@ -124,7 +126,99 @@ if (isset($_POST['login-btn'])) {
     }
 }
 
+// Make admin
+
+if (isset($_POST['makeadmin-btn'])) {
+   
+   $username = $_POST['update-user'];
+
+   $query = "UPDATE users SET isadmin = '1' WHERE username = :username";
+   $stmt = $conn->prepare($query);
+   $stmt->bindValue('username', $_POST['update-user']);
+   $stmt->execute();
+
+        $_SESSION['message'] = 'Success!';
+        $_SESSION['type'] = 'alert-success';
+        header('location: index.php');
+        exit(0);
+}
+
+
+// Revoke admin
+
+if (isset($_POST['revokeadmin-btn'])) {
+   
+   $username = $_POST['update-user'];
+
+   $query = "UPDATE users SET isadmin = '0' WHERE username = :username";
+   $stmt = $conn->prepare($query);
+   $stmt->bindValue('username', $_POST['update-user']);
+   $stmt->execute();
+
+        $_SESSION['message'] = 'Success!';
+        $_SESSION['type'] = 'alert-success';
+        header('location: index.php');
+        exit(0);
+}
+
+
+// Enable radius
+
+if (isset($_POST['radenable-btn'])) {
+   
+   $username = $_POST['update-user'];
+
+   $query = "DELETE FROM radusergroup WHERE username = :username AND groupname = 'Disabled Users'";
+   $stmt = $radconn->prepare($query);
+   $stmt->bindValue('username', $_POST['update-user']);
+   $stmt->execute();
+
+        $_SESSION['message'] = 'Success!';
+        $_SESSION['type'] = 'alert-success';
+        header('location: index.php');
+        exit(0);
+}
+
+
+// Disable radius
+
+if (isset($_POST['raddisable-btn'])) {
+   
+   $username = $_POST['update-user'];
+
+   $query = "INSERT INTO radusergroup(username,groupname,priority) VALUES(:username, 'Disabled Users', '99')";
+   $stmt = $radconn->prepare($query);
+   $stmt->bindValue('username', $_POST['update-user']);
+   $stmt->execute();
+
+        $_SESSION['message'] = 'Success!';
+        $_SESSION['type'] = 'alert-success';
+        header('location: index.php');
+        exit(0);
+}
+
+// Remove User
+
+if (isset($_POST['deluser-btn'])) {
+
+   $query = "DELETE FROM users WHERE username = :username";
+   $stmt = $conn->prepare($query);
+   $stmt->bindValue('username', $_POST['delete-user']);
+   $stmt->execute();
+
+   $queryrug = "DELETE FROM radusergroup WHERE username = :username";
+   $stmtrug = $radconn->prepare($queryrug);
+   $stmtrug->bindValue('username', $_POST['delete-user']);
+   $stmtrug->execute();
+
+        $_SESSION['message'] = 'Success!';
+        $_SESSION['type'] = 'alert-success';
+        header('location: index.php');
+
+}
+
 // Change Password
+
 if (isset($_POST['changepw-btn'])) {
     if (empty($_POST['oldpassword'])) {
         $errors['oldpassword'] = 'Old password required';
@@ -149,13 +243,13 @@ if (isset($_POST['changepw-btn'])) {
 	$user = $stmt->fetch(PDO::FETCH_OBJ); 
 
 	if (password_verify($oldpassword, $user->password)) {
-	    $query = "UPDATE users set password = :password where username = :username";
+	    $query = "UPDATE users SET password = :password WHERE username = :username";
 	    $stmt = $conn->prepare($query);
 	    $stmt->bindValue('username', $_SESSION['username']);
 	    $stmt->bindValue('password', password_hash($_POST['password'], PASSWORD_BCRYPT));
 	    $stmt->execute();
 
-	    $queryrad = "UPDATE radcheck set value = :password where username = :username";
+	    $queryrad = "UPDATE radcheck SET value = :password WHERE username = :username";
 	    $stmtrad = $radconn->prepare($queryrad);
             $stmtrad->bindValue('username', $_SESSION['username']);
 	    $stmtrad->bindValue('password', md5($_POST['password']));
@@ -178,74 +272,8 @@ if (isset($_POST['changepw-btn'])) {
 }
 
 
-// Make admin
-if (isset($_POST['makeadmin-btn'])) {
-   
-   $username = $_POST['update-user'];
-
-   $query = "UPDATE users SET isadmin = '1' where username = :username";
-   $stmt = $conn->prepare($query);
-   $stmt->bindValue('username', $_POST['update-user']);
-   $stmt->execute();
-
-        $_SESSION['message'] = 'Success!';
-        $_SESSION['type'] = 'alert-success';
-        header('location: index.php');
-        exit(0);
-}
-
-
-// Revoke admin
-if (isset($_POST['revokeadmin-btn'])) {
-   
-   $username = $_POST['update-user'];
-
-   $query = "UPDATE users SET isadmin = '0' where username = :username";
-   $stmt = $conn->prepare($query);
-   $stmt->bindValue('username', $_POST['update-user']);
-   $stmt->execute();
-
-        $_SESSION['message'] = 'Success!';
-        $_SESSION['type'] = 'alert-success';
-        header('location: index.php');
-        exit(0);
-}
-
-
-// Enable radius
-if (isset($_POST['radenable-btn'])) {
-   
-   $username = $_POST['update-user'];
-
-   $query = "DELETE FROM radusergroup WHERE username = :username AND groupname = 'Disabled Users'";
-   $stmt = $radconn->prepare($query);
-   $stmt->bindValue('username', $_POST['update-user']);
-   $stmt->execute();
-
-        $_SESSION['message'] = 'Success!';
-        $_SESSION['type'] = 'alert-success';
-        header('location: index.php');
-        exit(0);
-}
-
-
-// Disable radius
-if (isset($_POST['raddisable-btn'])) {
-   
-   $username = $_POST['update-user'];
-
-   $query = "INSERT INTO radusergroup(username,groupname,priority) VALUES(:username, 'Disabled Users', '99')";
-   $stmt = $radconn->prepare($query);
-   $stmt->bindValue('username', $_POST['update-user']);
-   $stmt->execute();
-
-        $_SESSION['message'] = 'Success!';
-        $_SESSION['type'] = 'alert-success';
-        header('location: index.php');
-        exit(0);
-}
-
 // Add radius group
+
 if (isset($_POST['newgroup-btn'])) {
 
    $radgroup = $_POST['radgroup'];
@@ -265,9 +293,6 @@ if (isset($_POST['newgroup-btn'])) {
 // Add group check
 
 if (isset($_POST['addgroupcheck-btn'])) {
-
-
-//   $radgroup = $_POST['radgroup'];
 
    $query = "INSERT INTO radgroupcheck(groupname,attribute,op,value) VALUES(:groupname, :attribute, :op, :value)";
    $stmt = $radconn->prepare($query);
@@ -289,9 +314,6 @@ if (isset($_POST['addgroupcheck-btn'])) {
 
 if (isset($_POST['addgroupreply-btn'])) {
 
-
-//   $radgroup = $_POST['radgroup'];
-
    $query = "INSERT INTO radgroupreply(groupname,attribute,op,value) VALUES(:groupname, :attribute, :op, :value)";
    $stmt = $radconn->prepare($query);
    $stmt->bindValue('groupname', $_POST['radgroup']);
@@ -304,63 +326,6 @@ if (isset($_POST['addgroupreply-btn'])) {
         $_SESSION['type'] = 'alert-success';
         header('location: radiusgroups.php');
         exit(0);
-
-}
-
-// Add user to group
-
-if (isset($_POST['addusergroup-btn'])) {
-
-   $query = "INSERT INTO radusergroup(username,priority,groupname) VALUES(:username, :priority, :groupname)";
-   $stmt = $radconn->prepare($query);
-   $stmt->bindValue('username', $_POST['username']);
-   $stmt->bindValue('priority', $_POST['priority']);
-   $stmt->bindValue('groupname', $_POST['groupname']);
-   $stmt->execute();
-
-        $_SESSION['message'] = 'Success!';
-        $_SESSION['type'] = 'alert-success';
-        header('location: usergroup.php');
-        exit(0);
-
-}
-
-
-// Remove user from group
-
-
-if (isset($_POST['delusergroup-btn'])) {
-
-   $query = "DELETE FROM radusergroup WHERE username = :username AND groupname = :groupname";
-   $stmt = $radconn->prepare($query);
-   $stmt->bindValue('username', $_POST['username']);
-   $stmt->bindValue('groupname', $_POST['groupname']);
-   $stmt->execute();
-
-        $_SESSION['message'] = 'Success!';
-        $_SESSION['type'] = 'alert-success';
-        header('location: usergroup.php');
-
-}
-
-
-// Remove User
-
-if (isset($_POST['deluser-btn'])) {
-
-   $query = "DELETE FROM users WHERE username = :username";
-   $stmt = $conn->prepare($query);
-   $stmt->bindValue('username', $_POST['delete-user']);
-   $stmt->execute();
-
-   $queryrug = "DELETE FROM radusergroup WHERE username = :username";
-   $stmtrug = $radconn->prepare($queryrug);
-   $stmtrug->bindValue('username', $_POST['delete-user']);
-   $stmtrug->execute();
-
-        $_SESSION['message'] = 'Success!';
-        $_SESSION['type'] = 'alert-success';
-        header('location: index.php');
 
 }
 
@@ -392,5 +357,74 @@ if (isset($_POST['delgroup-btn'])) {
         $_SESSION['type'] = 'alert-success';
         header('location: radiusgroups.php');
         exit(0);
+
+}
+
+// Delete Group Check
+
+if (isset($_POST['delgroupcheck-btn'])) {
+
+   $query = "DELETE FROM radgroupcheck WHERE attribute = :attribute AND groupname = :groupname";
+   $stmt = $radconn->prepare($query);
+   $stmt->bindValue('attribute', $_POST['attribute']);
+   $stmt->bindValue('groupname', $_POST['groupname']);
+   $stmt->execute();
+
+        $_SESSION['message'] = 'Success!';
+        $_SESSION['type'] = 'alert-success';
+        header('location: radiusgroups.php');
+        exit(0);
+
+}
+
+// Delete Group Reply
+
+if (isset($_POST['delgroupreply-btn'])) {
+
+   $query = "DELETE FROM radgroupreply WHERE attribute = :attribute AND groupname = :groupname";
+   $stmt = $radconn->prepare($query);
+   $stmt->bindValue('attribute', $_POST['attribute']);
+   $stmt->bindValue('groupname', $_POST['groupname']);
+   $stmt->execute();
+
+        $_SESSION['message'] = 'Success!';
+        $_SESSION['type'] = 'alert-success';
+        header('location: radiusgroups.php');
+        exit(0);
+
+}
+
+// Add user to group
+
+if (isset($_POST['addusergroup-btn'])) {
+
+   $query = "INSERT INTO radusergroup(username,priority,groupname) VALUES(:username, :priority, :groupname)";
+   $stmt = $radconn->prepare($query);
+   $stmt->bindValue('username', $_POST['username']);
+   $stmt->bindValue('priority', $_POST['priority']);
+   $stmt->bindValue('groupname', $_POST['groupname']);
+   $stmt->execute();
+
+        $_SESSION['message'] = 'Success!';
+        $_SESSION['type'] = 'alert-success';
+        header('location: usergroup.php');
+        exit(0);
+
+}
+
+
+// Remove user from group
+
+if (isset($_POST['delusergroup-btn'])) {
+
+   $query = "DELETE FROM radusergroup WHERE username = :username AND groupname = :groupname";
+   $stmt = $radconn->prepare($query);
+   $stmt->bindValue('username', $_POST['username']);
+   $stmt->bindValue('groupname', $_POST['groupname']);
+   $stmt->execute();
+
+        $_SESSION['message'] = 'Success!';
+        $_SESSION['type'] = 'alert-success';
+        header('location: usergroup.php');
 
 }
