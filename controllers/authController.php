@@ -398,18 +398,36 @@ if (isset($_POST['delgroupreply-btn'])) {
 
 if (isset($_POST['addusergroup-btn'])) {
 
-   $query = "INSERT INTO radusergroup(username,priority,groupname) VALUES(:username, :priority, :groupname)";
-   $stmt = $radconn->prepare($query);
-   $stmt->bindValue('username', $_POST['username']);
-   $stmt->bindValue('priority', $_POST['priority']);
-   $stmt->bindValue('groupname', $_POST['groupname']);
-   $stmt->execute();
+    if (isset($_POST['priority']) && $_POST['priority'] < 100) {
+        $errors['priority'] = 'Priority has to be greater than 100';
+    }
 
-        $_SESSION['message'] = 'Success!';
-        $_SESSION['type'] = 'alert-success';
-        header('location: usergroup.php');
-        exit(0);
+   $querypriority = "SELECT * FROM radusergroup WHERE username = :username AND priority = :priority LIMIT 1";
+   $stmtpriority = $radconn->prepare($querypriority);
+   $stmtpriority->bindValue('username', $_POST['username']);
+   $stmtpriority->bindValue('priority', $_POST['priority']);
+   $stmtpriority->execute();
+   $countpriority = $stmtpriority->fetchColumn();
+   if ($countpriority > 0) {
+	$errors['priority'] = "Priority have to be unique";
+   }
 
+    if (count($errors) === 0) {
+       $query = "INSERT INTO radusergroup(username,priority,groupname) VALUES(:username, :priority, :groupname)";
+       $stmt = $radconn->prepare($query);
+       $stmt->bindValue('username', $_POST['username']);
+       $stmt->bindValue('priority', $_POST['priority']);
+       $stmt->bindValue('groupname', $_POST['groupname']);
+       $stmt->execute();
+    
+            $_SESSION['message'] = 'Success!';
+            $_SESSION['type'] = 'alert-success';
+            header('location: usergroup.php');
+            exit(0);
+
+   } else {
+	    $_SESSION['message'] = "Priority have to be unique";
+  }
 }
 
 
