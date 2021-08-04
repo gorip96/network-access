@@ -388,6 +388,9 @@ if (isset($_POST['delgroup-btn'])) {
    $stmtrug->bindValue('radgroup', $_POST['radgroup']);
    $stmtrug->execute();
 
-
+        $_SESSION['message'] = 'Success!';
+        $_SESSION['type'] = 'alert-success';
+        header('location: radiusgroups.php');
+        exit(0);
 
 }
