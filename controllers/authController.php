@@ -306,3 +306,39 @@ if (isset($_POST['addgroupreply-btn'])) {
         exit(0);
 
 }
+
+// Add user to group
+
+if (isset($_POST['addusergroup-btn'])) {
+
+   $query = "INSERT INTO radusergroup(username,priority,groupname) VALUES(:username, :priority, :groupname)";
+   $stmt = $radconn->prepare($query);
+   $stmt->bindValue('username', $_POST['username']);
+   $stmt->bindValue('priority', $_POST['priority']);
+   $stmt->bindValue('groupname', $_POST['groupname']);
+   $stmt->execute();
+
+        $_SESSION['message'] = 'Success!';
+        $_SESSION['type'] = 'alert-success';
+        header('location: usergroup.php');
+        exit(0);
+
+}
+
+
+// Remove user from group
+
+
+if (isset($_POST['delusergroup-btn'])) {
+
+   $query = "DELETE FROM radusergroup WHERE username = :username AND groupname = :groupname";
+   $stmt = $radconn->prepare($query);
+   $stmt->bindValue('username', $_POST['username']);
+   $stmt->bindValue('groupname', $_POST['groupname']);
+   $stmt->execute();
+
+        $_SESSION['message'] = 'Success!';
+        $_SESSION['type'] = 'alert-success';
+        header('location: usergroup.php');
+
+}
