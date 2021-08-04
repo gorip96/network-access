@@ -76,7 +76,7 @@ if (empty($_SESSION['id'])) {
 	// echo '      <div>';
 	echo '        <table class="table">';
 	echo '          <thead><tr>';
-	echo '            <th>Groups</th><th></th>';
+	echo '            <th>Groups</th><th>Priodiry</th><th></th>';
 	echo '          </tr></thead>';
 	echo '		<tbody><tr>';
 	echo '            <form method="post">';
@@ -89,7 +89,7 @@ if (empty($_SESSION['id'])) {
 	//echo '			<option value="3">Option 3</option>';
 	}
 	echo '		    </select></td>';
-	// echo '		    <td><input type="text" name="radgroup" class="form-control"></td>';
+	echo '		    <td><input type="text" size="2" name="priority" class="form-control"></td>';
 	echo '		    <td><button type="submit" class="btn  btn-primary btn-block" name="addusergroup-btn">Add Group</button></td>';
 	echo '		  </form>';
 	echo '		</tr></tbody>';
@@ -103,7 +103,7 @@ if (empty($_SESSION['id'])) {
 	echo '<h5>Usergroups</h5>';
 	echo '<table class="table table-striped">';
 	echo '  <thead><tr>';
-	echo '    <th>Groups</th><th>Delete</th>';
+	echo '    <th>Groups</th><th>Priority</th><th>Delete</th>';
 	echo '  </tr></thead>';
 	echo '		<tbody>';
 	$queryrug = "SELECT * FROM radusergroup WHERE username = :username AND groupname != 'Disabled Users'";
@@ -115,6 +115,7 @@ if (empty($_SESSION['id'])) {
 	echo '		    <input type="hidden" name="username" value="'.$row->username.'">';
 	echo '		    <input type="hidden" name="groupname" value="'.$rowrug->groupname.'">';
 	echo '		    <td>'.$rowrug->groupname.'</td>';
+	echo '		    <td>'.$rowrug->priotity.'</td>';
 	echo '		    <td><button type="submit" class="btn  btn-primary btn-block" name="delusergroup-btn">Delete</button></td>';
 	echo '		  </form></tr>';
 	}
