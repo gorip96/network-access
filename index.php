@@ -69,7 +69,7 @@ $_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
                    <th>Admin</th>
                    <?php if(($_SESSION['isadmin']) == 1) { echo  '<th>Admin Access</th>'; }; ?>
                    <th>Network Access</th>
-                   <?php if(($_SESSION['isadmin']) == 1) { echo  '<th>Network Permission</th>'; }; ?>
+                   <?php if(($_SESSION['isadmin']) == 1) { echo  '<th>Network Permission'; }; ?>
                    <?php if(($_SESSION['isadmin']) == 1) { echo  '<th>Delete</th>'; }; ?>
                  </tr>
                </thead>
@@ -106,8 +106,8 @@ $_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
 		  if(($_SESSION['isadmin']) == 1) {
 		  echo '<td><form method="post"><input type="hidden" name="update-user" value="'.$row->username.'"><button type="submit" class="btn  btn-primary btn-block" name="radenable-btn">Enable</button></form></td>'; }
 		  }
-		  // if(($_SESSION['isadmin']) == 1) {
-		  // echo '<td><form method="post"><input type="hidden" name="delete-user" value="'.$row->username.'"><button type="submit" class="btn  btn-primary btn-block" name="deluser-btn">Delete</button></form></td>'; } 
+		  if(($_SESSION['isadmin']) == 1) {
+		  echo '<td><form method="post"><input type="hidden" name="delete-user" value="'.$row->username.'"><button type="submit" class="btn  btn-primary btn-block" name="deluser-btn">Delete</button></form></td>'; } 
                 echo ' </tr>'; 
 	}	
 	?>
