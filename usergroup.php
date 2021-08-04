@@ -48,7 +48,8 @@ if (empty($_SESSION['id'])) {
         </div>
         <?php endif;?>
 
-        <h4>Welcome, <?php echo $_SESSION['username']; ?></h4>
+	<h3 class="text-center form-title">User Group</h3>
+        <!-- <h4>Welcome, <?php echo $_SESSION['username']; ?></h4> -->
         <?php if (!$_SESSION['verified']): ?>
           <div class="alert alert-warning alert-dismissible fade show" role="alert">
             You need to verify your email address!
