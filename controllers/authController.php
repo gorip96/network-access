@@ -374,17 +374,17 @@ if (isset($_POST['delgroup-btn'])) {
    $stmt->execute();
 
    $queryrgc = "DELETE FROM radgroupcheck WHERE groupname = :radgroup";
-   $stmtrgc = $conn->prepare($queryrgc);
+   $stmtrgc = $radconn->prepare($queryrgc);
    $stmtrgc->bindValue('radgroup', $_POST['radgroup']);
    $stmtrgc->execute();
 
    $queryrgr = "DELETE FROM radgroupreply WHERE groupname = :radgroup";
-   $stmtrgr = $conn->prepare($queryrgr);
+   $stmtrgr = $radconn->prepare($queryrgr);
    $stmtrgr->bindValue('radgroup', $_POST['radgroup']);
    $stmtrgr->execute();
 
    $queryrug = "DELETE FROM radusergroup WHERE groupname = :radgroup";
-   $stmtrug = $conn->prepare($queryrug);
+   $stmtrug = $raconn->prepare($queryrug);
    $stmtrug->bindValue('radgroup', $_POST['radgroup']);
    $stmtrug->execute();
 
