@@ -81,7 +81,7 @@ if (empty($_SESSION['id'])) {
 	echo '		<tbody><tr>';
 	echo '            <form method="post">';
 	echo '		    <input type="hidden" name="username" value="'.$row->username.'">';
-	echo '   	    <select name="radgroup" class="mdb-select md-form">';
+	echo '   	    <select name="radgroup" class="form-control">';
 	echo '			<option value="" disabled selected>Choose your option</option>';
 	echo '			<option value="1">Option 1</option>';
 	echo '			<option value="2">Option 2</option>';
