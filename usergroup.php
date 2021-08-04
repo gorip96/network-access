@@ -81,12 +81,12 @@ if (empty($_SESSION['id'])) {
 	echo '		<tbody><tr>';
 	echo '            <form method="post">';
 	echo '		    <input type="hidden" name="username" value="'.$row->username.'">';
-	echo '   	    <select name="radgroup" class="form-control">';
+	echo '   	    <td><select name="radgroup" class="form-control">';
 	echo '			<option value="" disabled selected>Choose your option</option>';
 	echo '			<option value="1">Option 1</option>';
 	echo '			<option value="2">Option 2</option>';
 	echo '			<option value="3">Option 3</option>';
-	echo '		    </select>';
+	echo '		    </select></td>';
 	// echo '		    <td><input type="text" name="radgroup" class="form-control"></td>';
 	echo '		    <td><button type="submit" class="btn  btn-primary btn-block" name="addusergroup-btn">Add Group</button></td>';
 	echo '		  </form>';
