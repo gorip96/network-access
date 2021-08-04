@@ -115,7 +115,7 @@ if (empty($_SESSION['id'])) {
 	echo '		    <input type="hidden" name="username" value="'.$row->username.'">';
 	echo '		    <input type="hidden" name="groupname" value="'.$rowrug->groupname.'">';
 	echo '		    <td>'.$rowrug->groupname.'</td>';
-	echo '		    <td>'.$rowrug->priotity.'</td>';
+	echo '		    <td>'.$rowrug->priority.'</td>';
 	echo '		    <td><button type="submit" class="btn  btn-primary btn-block" name="delusergroup-btn">Delete</button></td>';
 	echo '		  </form></tr>';
 	}
