@@ -94,7 +94,7 @@ if (empty($_SESSION['id'])) {
 	echo '    <th>Groups</th><th>Delete</th>';
 	echo '  </tr></thead>';
 	echo '		<tbody>';
-	$queryrug = "SELECT * FROM radusergroup WHERE username = :username";
+	$queryrug = "SELECT * FROM radusergroup WHERE username = :username AND groupname != 'Disabled Users'";
 	$stmtrug = $radconn->prepare($queryrug);
 	$stmtrug->bindValue('username', $row->username);
 	$stmtrug->execute();
