@@ -17,7 +17,7 @@ if (isset($_POST['signup-btn'])) {
     if (empty($_POST['username'])) {
         $errors['username'] = 'Username required';
     } else if (strrpos($_POST["username"], ' ') !== false) {
-    	$errors['username']  = 'Space not allowed in username';
+    	$errors['username']  = 'Username must not contain space';
     } 
     if (empty($_POST['email'])) {
         $errors['email'] = 'Email required';
