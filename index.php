@@ -102,10 +102,10 @@ $_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
 		  echo '&#x1F7E2;</td>';
 		  if(($_SESSION['isadmin']) == 1) {
 		  echo '<td><form method="post"><input type="hidden" name="update-user" value="'.$row->username.'"><button type="submit" class="btn  btn-primary btn-block" name="raddisable-btn">Disable</button></form></td>'; }
-                } else {
 		  echo '&#x1F534;</td>'; 
 		  if(($_SESSION['isadmin']) == 1) {
 		  echo '<td><form method="post"><input type="hidden" name="update-user" value="'.$row->username.'"><button type="submit" class="btn  btn-primary btn-block" name="radenable-btn">Enable</button></form></td>'; }
+		  }
 		  if(($_SESSION['isadmin']) == 1) {
 		  echo '<td><form method="post"><input type="hidden" name="delete-user" value="'.$row->username.'"><button type="submit" class="btn  btn-primary btn-block" name="deluser-btn">Delete</button></form></td>'; }
 		}
