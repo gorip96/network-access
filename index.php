@@ -70,6 +70,7 @@ $_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
                    <?php if(($_SESSION['isadmin']) == 1) { echo  '<th>Admin Access</th>'; }; ?>
                    <th>Network Access</th>
                    <?php if(($_SESSION['isadmin']) == 1) { echo  '<th>Network Permission</th>'; }; ?>
+                   <?php if(($_SESSION['isadmin']) == 1) { echo  '<th>Delete</th>'; }; ?>
                  </tr>
                </thead>
                <tbody>
