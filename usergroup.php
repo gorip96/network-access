@@ -66,13 +66,13 @@ if (empty($_SESSION['id'])) {
   <div class="container">
 <?php
 
-	$query = "SELECT * FROM users ORDER BY username";
+	$query = "SELECT * FROM users";
 	$stmt = $conn->prepare($query);
 	$stmt->execute();
 
 	$querygroups = "SELECT * FROM radiusgroups";
 	$stmtgroups = $conn->prepare($querygroups);
-	$stmtgroups->execute(); 
+	// $stmtgroups->execute(); 
 
 	while($row = $stmt->fetch(PDO::FETCH_OBJ)){
 	echo '<p>';
@@ -92,6 +92,7 @@ if (empty($_SESSION['id'])) {
 	echo '		    <input type="hidden" name="username" value="'.$row->username.'">';
 	echo '   	    <td><select name="groupname" class="form-control">';
 	echo '			<option value="" disabled selected>Select group to add</option>';
+	$stmtgroups->execute();
 	while($rowgroups = $stmtgroups->fetch(PDO::FETCH_OBJ)){
 	echo '			<option value="'.$rowgroups->groups.'">'.$rowgroups->groups.'</option>';
 	//echo '			<option value="2">Option 2</option>';
@@ -109,7 +110,7 @@ if (empty($_SESSION['id'])) {
 	// echo '  <div class="col">';
 	// echo '  </div>';
 	// echo '</div>';
-	echo '<h5>Usergroups</h5>';
+	echo '<h5>User Groups</h5>';
 	echo '<table class="table table-striped">';
 	echo '  <thead><tr>';
 	echo '    <th>Groups</th><th>Priority</th><th>Delete</th>';
