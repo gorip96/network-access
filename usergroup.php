@@ -72,17 +72,13 @@ if (empty($_SESSION['id'])) {
 
 	$querygroups = "SELECT * FROM radiusgroups";
 	$stmtgroups = $conn->prepare($querygroups);
-	// $stmtgroups->execute(); 
 
 	while($row = $stmt->fetch(PDO::FETCH_OBJ)){
 	echo '<p>';
 	echo '<h3>'.$row->username.'</h3>';
 	echo '<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#newusergroup-'.$row->id.'" aria-expanded="false" aria-controls="newusergroup-'.$row->id.'">New User Group Binding</button>';
 	echo '</p>';
-	// echo '<div class="row">';
-	// echo '  <div class="col">';
 	echo '    <div class="collapse" id="newusergroup-'.$row->id.'">';
-	// echo '      <div>';
 	echo '        <table class="table">';
 	echo '          <thead><tr>';
 	echo '            <th>Groups</th><th>Priority</th><th></th>';
@@ -95,8 +91,6 @@ if (empty($_SESSION['id'])) {
 	$stmtgroups->execute();
 	while($rowgroups = $stmtgroups->fetch(PDO::FETCH_OBJ)){
 	echo '			<option value="'.$rowgroups->groups.'">'.$rowgroups->groups.'</option>';
-	//echo '			<option value="2">Option 2</option>';
-	//echo '			<option value="3">Option 3</option>';
 	}
 	echo '		    </select></td>';
 	echo '		    <td><input type="text" size="2" name="priority" class="form-control"></td>';
@@ -104,12 +98,7 @@ if (empty($_SESSION['id'])) {
 	echo '		  </form>';
 	echo '		</tr></tbody>';
 	echo '        </table>';
-	// echo '      </div>';
 	echo '    </div>';
-	// echo '  </div>';
-	// echo '  <div class="col">';
-	// echo '  </div>';
-	// echo '</div>';
 	echo '<h5>User Groups</h5>';
 	echo '<table class="table table-striped">';
 	echo '  <thead><tr>';
