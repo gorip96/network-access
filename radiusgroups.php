@@ -80,7 +80,7 @@ if (empty($_SESSION['id'])) {
   <div class="container">
 <?php
 
-	$query = "SELECT * FROM radiusgroups";
+	$query = "SELECT * FROM radiusgroups ORDER BY groups";
 	$stmt = $conn->prepare($query);
 	$stmt->execute();
 
