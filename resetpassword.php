@@ -38,7 +38,7 @@ if (empty($_SESSION['id'])) {
              <?php endforeach;?>
            </div>
          <?php endif;?>  
-        <form action="changepassword.php" method="post">
+        <form action="resetpassword.php" method="post">
         <!-- Display messages -->
         <?php if (isset($_SESSION['message'])): ?>
         <div class="alert <?php echo $_SESSION['type'] ?>">

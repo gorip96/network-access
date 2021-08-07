@@ -301,7 +301,7 @@ if (isset($_POST['resetpw-btn'])) {
  
 		$_SESSION['message'] = 'Successfully reset password for '.$_POST['username'].'!';
 		$_SESSION['type'] = 'alert-success';
-		header('location: index.php');
+		header('location: resetpassword.php');
 		exit(0); 
   }
 }
