@@ -21,14 +21,14 @@ if (empty($_SESSION['id'])) {
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-  <title>Reset Password for <?php echo $_POST['resetpw-user']; ?></title>
+  <title>Reset Password</title>
 </head>
 <body>
 <?php include "navbar.php"; ?>
   <div class="container">
     <div class="row">
       <div class="col-md-4 offset-md-4 form-wrapper auth">
-        <h3 class="text-center form-title">Change Password</h3>
+        <h3 class="text-center form-title">Reset Password for <?php echo $_POST['resetpw-user']; ?></h3>
          <?php if (count($errors) > 0): ?>
            <div class="alert alert-danger">
              <?php foreach ($errors as $error): ?>
