@@ -272,6 +272,41 @@ if (isset($_POST['changepw-btn'])) {
 }
 
 
+// Reset Password
+
+if (isset($_POST['resetpw-btn'])) {
+    if (empty($_POST['password'])) {
+        $errors['password'] = 'Password required';
+    }
+    if (isset($_POST['password']) && $_POST['password'] !== $_POST['passwordConf']) {
+        $errors['passwordConf'] = 'The two passwords do not match';
+    }
+
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+    $passwordConf = $_POST['passwordConf'];
+
+    if (count($errors) === 0) {
+	    $query = "UPDATE users SET password = :password WHERE username = :username";
+	    $stmt = $conn->prepare($query);
+	    $stmt->bindValue('username', $_POST['username']);
+	    $stmt->bindValue('password', password_hash($_POST['password'], PASSWORD_BCRYPT));
+	    $stmt->execute();
+
+	    $queryrad = "UPDATE radcheck SET value = :password WHERE username = :username";
+	    $stmtrad = $radconn->prepare($queryrad);
+            $stmtrad->bindValue('username', $_POST['username']);
+	    $stmtrad->bindValue('password', md5($_POST['password']));
+	    $stmtrad->execute();
+ 
+		$_SESSION['message'] = 'Successfully reset password for '.$_POST['username'].'!';
+		$_SESSION['type'] = 'alert-success';
+		header('location: index.php');
+		exit(0); 
+  }
+}
+
+
 // Add radius group
 
 if (isset($_POST['newgroup-btn'])) {

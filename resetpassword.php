@@ -50,10 +50,9 @@ if (empty($_SESSION['id'])) {
         </div>
         <?php endif;?>
           <div class="form-group">
-            <label>Old Password</label>
-            <input type="password" name="oldpassword" class="form-control form-control-lg">
-          </div>
-          <div class="form-group">
+	<?php
+	    echo '<input type=hidden name="username" value="'.$_POST[resetpw-user].'">';
+	?>
             <label>New Password</label>
             <input type="password" name="password" class="form-control form-control-lg">
           </div>
@@ -62,7 +61,7 @@ if (empty($_SESSION['id'])) {
             <input type="password" name="passwordConf" class="form-control form-control-lg">
           </div>
           <div class="form-group">
-            <button type="submit" name="changepw-btn" class="btn btn-lg btn-block">Change Password</button>
+            <button type="submit" name="resetpw-btn" class="btn btn-lg btn-block">Reset Password</button>
           </div>
         </form>
       </div>
