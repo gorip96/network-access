@@ -66,7 +66,7 @@ if (empty($_SESSION['id'])) {
   <div class="container">
 <?php
 
-	$query = "SELECT * FROM users";
+	$query = "SELECT * FROM users ORDER BY username";
 	$stmt = $conn->prepare($query);
 	$stmt->execute();
 
