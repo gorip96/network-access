@@ -70,7 +70,7 @@ if (empty($_SESSION['id'])) {
 	$stmt = $conn->prepare($query);
 	$stmt->execute();
 
-	$querygroups = "SELECT * FROM radiusgroups";
+	$querygroups = "SELECT * FROM radiusgroups ORDER BY groups";
 	$stmtgroups = $conn->prepare($querygroups);
 
 	while($row = $stmt->fetch(PDO::FETCH_OBJ)){
