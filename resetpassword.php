@@ -51,7 +51,7 @@ if (empty($_SESSION['id'])) {
         <?php endif;?>
           <div class="form-group">
 	<?php
-	    echo '<input type=hidden name="username" value="'.$_POST[resetpw-user].'">';
+	    echo '<input type=hidden name="username" value="'.$_POST['resetpw-user'].'">';
 	?>
             <label>New Password</label>
             <input type="password" name="password" class="form-control form-control-lg">
