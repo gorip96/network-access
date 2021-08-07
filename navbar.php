@@ -14,7 +14,7 @@ if ($_SESSION['isadmin'] == 1) {
      echo '</li>'; }
 ?>
      <li class="nav-item">
-       <a class="nav-link" href="#">Link</a>
+       <a class="nav-link" href="mygroups.php">My Groups</a>
      </li>
     <li class="nav-item dropdown">
       <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
