@@ -100,7 +100,7 @@ if (isset($_POST['login-btn'])) {
     if (count($errors) === 0) {
         $query = "SELECT * FROM users WHERE username = :username OR email = :email LIMIT 1";
         $stmt = $conn->prepare($query);
-	$stmt->bindValue('username', $_POST['username']);
+	$stmt->bindValue('username', strtolower($_POST['username']));
 	$stmt->bindValue('email', $_POST['username']);
 
         if ($stmt->execute()) {
