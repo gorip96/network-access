@@ -4,14 +4,15 @@
    </a>
    <ul class="navbar-nav">
 <?php
-if ($_SESSION['isadmin'] == 1) {
+if ((isset($_SESSION['isadmin'])) && ($_SESSION['isadmin'] == 1)) {
 	echo '
      <li class="nav-item">
        <a class="nav-link" href="radiusgroups.php">Radius Groups</a>
      </li>
      <li class="nav-item">
        <a class="nav-link" href="usergroup.php">User Group</a>';
-     echo '</li>'; }
+     echo '</li>'; } else {
+	$_SESSION['isadmin'] = 0; }
 ?>
      <li class="nav-item">
        <a class="nav-link" href="mygroups.php">My Groups</a>
