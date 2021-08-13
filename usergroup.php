@@ -76,7 +76,8 @@ if (empty($_SESSION['id'])) {
 	while($row = $stmt->fetch(PDO::FETCH_OBJ)){
 	echo '<p>';
 	echo '<h3>'.$row->username.'</h3>';
-	echo '<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#newusergroup-'.$row->id.'" aria-expanded="false" aria-controls="newusergroup-'.$row->id.'">New User Group Binding</button>';
+	echo '<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#newusergroup-'.$row->id.'" aria-expanded="false" aria-controls="newusergroup-'.$row->id.'">New Group Binding</button>';
+	echo '<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#usergroup-'.$row->id.'" aria-expanded="false" aria-controls="usergroup-'.$row->id.'">Show / Hide Group</button>';
 	echo '</p>';
 	echo '    <div class="collapse" id="newusergroup-'.$row->id.'">';
 	echo '        <table class="table">';
@@ -99,6 +100,7 @@ if (empty($_SESSION['id'])) {
 	echo '		</tr></tbody>';
 	echo '        </table>';
 	echo '    </div>';
+	echo '<div class="collapse" id="usergroup-'.$row->id.'">';
 	echo '<h5>User Groups</h5>';
 	echo '<table class="table table-striped">';
 	echo '  <thead><tr>';
@@ -120,6 +122,7 @@ if (empty($_SESSION['id'])) {
 	}
 	echo '		</tbody>';
 	echo '</table>';
+	echo '</div>';
 	}
 ?>
   </div>
