@@ -211,6 +211,11 @@ if (isset($_POST['deluser-btn'])) {
    $stmtrug->bindValue('username', $_POST['delete-user']);
    $stmtrug->execute();
 
+   $queryrc = "DELETE FROM radcheck WHERE username = :username";
+   $stmtrc = $radconn->prepare($queryrc);
+   $stmtrc->bindValue('username', $_POST['delete-user']);
+   $stmtrc->execute();
+
         $_SESSION['message'] = 'Success!';
         $_SESSION['type'] = 'alert-success';
         header('location: index.php');
