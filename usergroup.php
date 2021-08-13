@@ -49,7 +49,7 @@ if (empty($_SESSION['id'])) {
         <?php endif;?>
 
 	<h3 class="text-center form-title">User Group</h3>
-        <?php if (!$_SESSION['verified']): ?>
+        <?php if (!isset($_SESSION['verified'])): ?>
           <div class="alert alert-warning alert-dismissible fade show" role="alert">
             You need to verify your email address!
             Sign into your email account and click
