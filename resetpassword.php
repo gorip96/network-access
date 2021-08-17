@@ -5,7 +5,9 @@ include 'controllers/authController.php';
 if (empty($_SESSION['id'])) {
     header('location: login.php');
 }
-
+if ($_SESSION['2fa'] == '1' && $_SESSION['verify2fa'] != '1') {
+    header('location: verify2fa.php');
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
