@@ -68,7 +68,7 @@ include "navbar.php";
         <?php else: ?>
 	<?php if (($row->twoFA) == '0') {
           echo '<button type="button" class="btn btn-primary btn-block" data-toggle="collapse" data-target="#twoFA" aria-expanded="false" aria-controls="twoFA">Enable 2FA</button>';
-	  echo '<div class="collapse" id="twoFA">';
+	  echo '<div class="collapse d-flex justify-content-center" id="twoFA">';
 	  echo '<img src="'.$g->getURL(''.$row->username.'', $systemhostname, $secret).'" />';
 	  echo '</div>';
 	} else {
