@@ -38,7 +38,6 @@ include "navbar.php";
 	$row = $stmt->fetch(PDO::FETCH_OBJ);
 
 	$g = new \Google\Authenticator\GoogleAuthenticator();
-	// $secret = 'c0b4702c51bc0c76b77af4338a015f33';
 	$secret = $row->username.$row->code2fa;
 	$username = $row->username;
 ?>
@@ -71,14 +70,12 @@ include "navbar.php";
 	<?php if (($row->twoFA) == '0') {
           echo '<div class="container">';
 	  echo '<button class="btn btn-lg btn-primary btn-block">Enable 2FA</button>';
-          // echo '<button type="button" class="btn btn-primary btn-block" data-toggle="collapse" data-target="#twoFA" aria-expanded="false" aria-controls="twoFA">Enable 2FA</button>';
 	  echo '<div>Scan this QR code using your authenticator app</div><br>';
 	  echo '<div class="d-flex justify-content-center" id="twoFA">';
 	  echo '<div><img src="'.$g->getURL($username, $systemhostname, $secret).'" /></div><br>';
 	  echo '</div>';
-	  echo '<form method="post"><div><p>Input code : </p><input tyoe="number" name="twoFAcode"></div><br>';
-	  echo '<input type="hidden" name="username" value="'.$_SESSION['username'].'">';
-	  // echo '<input type="hidden" name="username" value="'.$row->username.'">';
+	  echo '<form method="post"><div><p>Input code : </p><input type="number" name="twoFAcode"></div><br>';
+	  echo '<input type="hidden" name="username" value="'.$row->username.'">';
           echo '<div><button type="submit" class="btn btn-primary btn-block" name="enable2fa-btn">Enable 2FA</button></div></form>';
 	  echo '</div>';
 	} else {
