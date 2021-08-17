@@ -23,7 +23,23 @@ if (empty($_SESSION['id'])) {
   <title>Two-Factor Authentication</title>
 </head>
 <body>
-<?php include "navbar.php"; ?>
+<?php
+
+include_once 'vendor/sonata-project/google-authenticator/src/FixedBitNotation.php';
+include_once 'vendor/sonata-project/google-authenticator/src/GoogleAuthenticatorInterface.php';
+include_once 'vendor/sonata-project/google-authenticator/src/GoogleAuthenticator.php';
+include_once 'vendor/sonata-project/google-authenticator/src/GoogleQrUrl.php';
+include "navbar.php";
+        $query = "SELECT * FROM users WHERE username = :username";
+        $stmt = $conn->prepare($query);
+	$stmt->bindValue('username', $_SESSION['username']);
+        $stmt->execute();
+	$row = $stmt->fetch(PDO::FETCH_OBJ);
+
+	$g = new \Google\Authenticator\GoogleAuthenticator();
+	$secret = $row->token;
+?>
+
   <div class="container">
     <div class="row">
       <div class="col-md-4 offset-md-4 home-wrapper">
@@ -49,7 +65,7 @@ if (empty($_SESSION['id'])) {
             <strong><?php echo $_SESSION['email']; ?></strong>
           </div>
         <?php else: ?>
-          <!-- <button class="btn btn-lg btn-primary btn-block">I'm verified!!!</button> -->
+          <button class="btn btn-lg btn-primary btn-block">Enable 2FA</button>
         <?php endif;?>
       </div>
     </div>
