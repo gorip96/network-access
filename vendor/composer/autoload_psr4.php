@@ -18,4 +18,5 @@ return array(
     'GuzzleHttp\\Promise\\' => array($vendorDir . '/guzzlehttp/promises/src'),
     'GuzzleHttp\\' => array($vendorDir . '/guzzlehttp/guzzle/src'),
     'Google\\Authenticator\\' => array($vendorDir . '/sonata-project/google-authenticator/src'),
+    'Base32\\' => array($vendorDir . '/christian-riesen/base32/src'),
 );

@@ -43,6 +43,10 @@ class ComposerStaticInit9812b97af333574f554229da9f371d7a
             'GuzzleHttp\\' => 11,
             'Google\\Authenticator\\' => 21,
         ),
+        'B' => 
+        array (
+            'Base32\\' => 7,
+        ),
     );
 
     public static $prefixDirsPsr4 = array (
@@ -94,6 +98,10 @@ class ComposerStaticInit9812b97af333574f554229da9f371d7a
         'Google\\Authenticator\\' => 
         array (
             0 => __DIR__ . '/..' . '/sonata-project/google-authenticator/src',
+        ),
+        'Base32\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/christian-riesen/base32/src',
         ),
     );
 

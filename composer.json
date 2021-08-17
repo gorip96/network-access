@@ -2,6 +2,7 @@
     "require": {
         "phpmailer/phpmailer": "^6.5",
         "league/oauth2-google": "^3.0",
-        "sonata-project/google-authenticator": "^2.3"
+        "sonata-project/google-authenticator": "^2.3",
+        "christian-riesen/base32": "^1.6"
     }
 }
