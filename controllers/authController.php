@@ -550,7 +550,7 @@ if (isset($_POST['disable2fa-btn'])) {
 
         $_SESSION['message'] = 'Success!';
         $_SESSION['type'] = 'alert-success';
-        header('location: usergroup.php');
+        header('location: 2fa.php');
         exit(0);
 
 }
