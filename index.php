@@ -17,6 +17,9 @@ if (empty($_SESSION['email'])) {
 if ($_SESSION['2fa'] == '1' && $_SESSION['verify2fa'] != '1') {
     header('location: verify2fa.php');
 }
+if ($_SESSION['isadmin'] == '1' && $_SESSION['2fa'] != '1') {
+    header('location: 2fa.php');
+}
 if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 900)) {
     // last request was more than 15 minutes ago
     session_unset();     // unset $_SESSION variable for the run-time 
