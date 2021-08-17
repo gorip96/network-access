@@ -66,9 +66,9 @@ include "navbar.php";
           </div>
         <?php else: ?>
 	<?php if (($row->twoFA) == '0') {
-          echo '<button class="btn btn-lg btn-primary btn-block">Enable 2FA</button>';
+          echo '<button class="btn btn-primary btn-block">Enable 2FA</button>';
 	} else {
-          echo '<button class="btn btn-lg btn-danger btn-block">Disable 2FA</button>';
+          echo '<button class="btn btn-danger btn-block">Disable 2FA</button>';
 	}  ?>
         <?php endif;?>
       </div>
