@@ -538,10 +538,15 @@ if (isset($_POST['enable2fa-btn'])) {
 
 if (isset($_POST['enable2fa-btn'])) {
 
-   $query = "UPDATE users SET twoFA = '0' WHERE username = :username";
+   $code2fa = Base32::encode(rand());
+
+   $query = "UPDATE users SET twoFA = '0', code2fa = :code2fa WHERE username = :username";
    $stmt = $conn->prepare($query);
    $stmt->bindValue('username', $_POST['username']);
+   $stmt->bindValue('code2fa', $code2fa);
    $stmt->execute();
+
+
 
         $_SESSION['message'] = 'Success!';
         $_SESSION['type'] = 'alert-success';
