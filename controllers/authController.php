@@ -4,6 +4,11 @@ require "config.php";
 
 require_once ("lib/MailService.php");
 
+include_once 'vendor/sonata-project/google-authenticator/src/FixedBitNotation.php';
+include_once 'vendor/sonata-project/google-authenticator/src/GoogleAuthenticatorInterface.php';
+include_once 'vendor/sonata-project/google-authenticator/src/GoogleAuthenticator.php';
+include_once 'vendor/sonata-project/google-authenticator/src/GoogleQrUrl.php';
+
 session_start();
 $username = "";
 $email = "";
@@ -482,5 +487,41 @@ if (isset($_POST['delusergroup-btn'])) {
         $_SESSION['message'] = 'Success!';
         $_SESSION['type'] = 'alert-success';
         header('location: usergroup.php');
+
+}
+
+// Enable 2FA
+
+if (isset($_POST['enable-btn'])) {
+
+   $query = "SELECT * FROM users";
+   $stmt = $conn->prepare($query);
+   $stmt->bindValue('username', $_POST['username']);
+   $stmt->execute();
+   $row = $stmt->fetch(PDO::FETCH_OBJ);
+
+   $g = new \Google\Authenticator\GoogleAuthenticator();
+   $secret = $row->username.$row->token;
+
+   $check_this_code = $_POST['twoFAcode'];
+
+   if ($g->checkCode($secret, $check_this_code)) { 
+
+   $query2fa = "UPDATE users SET twoFA = '1' WHERE username = :username";
+   $stmt2fa = $conn->prepare($query2fa);
+   $stmt2fa->bindValue('username', $_POST['username']);
+   $stmt2fa->execute();
+
+        $_SESSION['message'] = 'Success!';
+        $_SESSION['type'] = 'alert-success';
+        header('location: 2fa.php');
+
+   } else {
+
+        $_SESSION['message'] = 'Invalid Code!';
+        $_SESSION['type'] = 'alert-danger';
+        header('location: 2fa.php');
+
+   }
 
 }

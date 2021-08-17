@@ -38,7 +38,7 @@ include "navbar.php";
 	$row = $stmt->fetch(PDO::FETCH_OBJ);
 
 	$g = new \Google\Authenticator\GoogleAuthenticator();
-	$secret = $row->token;
+	$secret = $row->username.$row->token;
 ?>
 
   <div class="container">
@@ -74,8 +74,9 @@ include "navbar.php";
 	  echo '<div class="d-flex justify-content-center" id="twoFA">';
 	  echo '<div><img src="'.$g->getURL(''.$row->username.'', $systemhostname, $secret).'" /></div><br>';
 	  echo '</div>';
-	  echo '<div><p>Input code : </p><input tyoe="number" name="twoFAcode"></div><br>';
-          echo '<div><button type="submit" class="btn btn-primary btn-block" name="enable2fa-btn">Enable 2FA</button></div>';
+	  echo '<form method="post"><div><p>Input code : </p><input tyoe="number" name="twoFAcode"></div><br>';
+	  echo '<input type="hidden" name="username" value="'.$row->username.'">';
+          echo '<div><button type="submit" class="btn btn-primary btn-block" name="enable2fa-btn">Enable 2FA</button></div></form>';
 	  echo '</div>';
 	} else {
           echo '<button type="submit" class="btn btn-danger btn-block" name="disable2fa-btn">Disable 2FA</button>';
