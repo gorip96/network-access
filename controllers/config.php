@@ -13,4 +13,8 @@ $raddbname = '';
 $raddbuser = '';
 $raddbpass = '';
 
+// System settings
+
+$systemurl = '';
+
 ?>
