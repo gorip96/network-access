@@ -14,7 +14,7 @@ if (empty($_SESSION['username'])) {
 if (empty($_SESSION['email'])) {
     $_SESSION['email'] = '';
 }
-if ($_SESSION['2fa'] == '1' && $_SESSION['verify2fa'] = '0') {
+if ($_SESSION['2fa'] == '1' && $_SESSION['verify2fa'] != '1') {
     header('location: verify2fa.php');
 }
 if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 900)) {
