@@ -39,7 +39,7 @@ include "navbar.php";
 
 	$g = new \Google\Authenticator\GoogleAuthenticator();
 	// $secret = 'c0b4702c51bc0c76b77af4338a015f33';
-	$secret = $row->username.$row->code2fa;
+	$secret = $row->code2fa;
 	$username = $row->username;
 ?>
 
