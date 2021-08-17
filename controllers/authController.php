@@ -536,7 +536,7 @@ if (isset($_POST['enable2fa-btn'])) {
 
 // Disable 2FA
 
-if (isset($_POST['enable2fa-btn'])) {
+if (isset($_POST['disable2fa-btn'])) {
 
    $code2fa = Base32::encode(rand());
 
