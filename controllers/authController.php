@@ -492,7 +492,7 @@ if (isset($_POST['delusergroup-btn'])) {
 
 // Enable 2FA
 
-if (isset($_POST['enable-btn'])) {
+if (isset($_POST['enable2fa-btn'])) {
 
    $query = "SELECT * FROM users";
    $stmt = $conn->prepare($query);
