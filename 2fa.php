@@ -68,7 +68,7 @@ include "navbar.php";
         <?php else: ?>
 	<?php if (($row->twoFA) == '0') {
           echo '<div class="container">';
-	  echo '<button class="btn btn-lg btn-primary btn-block">Enable 2FA</button';
+	  echo '<button class="btn btn-lg btn-primary btn-block">Enable 2FA</button>';
           // echo '<button type="button" class="btn btn-primary btn-block" data-toggle="collapse" data-target="#twoFA" aria-expanded="false" aria-controls="twoFA">Enable 2FA</button>';
 	  echo '<div>Scan this QR code using your authenticator app</div><br>';
 	  echo '<div class="d-flex justify-content-center" id="twoFA">';
