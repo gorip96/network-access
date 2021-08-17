@@ -79,7 +79,10 @@ include "navbar.php";
           echo '<div><button type="submit" class="btn btn-primary btn-block" name="enable2fa-btn">Enable 2FA</button></div></form>';
 	  echo '</div>';
 	} else {
-          echo '<button type="submit" class="btn btn-danger btn-block" name="disable2fa-btn">Disable 2FA</button>';
+          echo '<form method="post">
+	        <input type="hidden" name="username" value="'.$row->username.'">
+	        <button type="submit" class="btn btn-danger btn-block" name="disable2fa-btn">Disable 2FA</button>
+	        </form>';
 	}  ?>
         <?php endif;?>
       </div>

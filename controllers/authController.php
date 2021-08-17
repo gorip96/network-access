@@ -42,6 +42,7 @@ if (isset($_POST['signup-btn'])) {
     $email = $_POST['email'];
     $token = bin2hex(random_bytes(50)); // generate unique token
     $password = $_POST['password'];
+    $code2fa = Base32::encode(rand());
 
     // Check if email already exists
     $countuser = "SELECT * FROM users WHERE email = :email OR username = :username LIMIT 1";
@@ -55,12 +56,13 @@ if (isset($_POST['signup-btn'])) {
     }
 
     if (count($errors) === 0) {
-        $query = "INSERT INTO users(username, password, email, token) values(:username, :password, :email, :token)";
+        $query = "INSERT INTO users(username, password, email, token, code2fa) values(:username, :password, :email, :token, :code2fa)";
         $stmt = $conn->prepare($query);
 	$stmt->bindValue('username', $_POST['username']);
 	$stmt->bindValue('password', password_hash($_POST['password'], PASSWORD_BCRYPT));
 	$stmt->bindValue('email', $_POST['email']);
 	$stmt->bindValue('token', $token);
+	$stmt->bindValue('code2fa', $code2fa);
 	$result = $stmt->execute();
 
 	$query = "INSERT INTO radcheck(username,attribute,op,value) values(:username, 'MD5-Password', ':=', :password)";
@@ -529,5 +531,21 @@ if (isset($_POST['enable2fa-btn'])) {
 	exit(0);
 
    }
+
+}
+
+// Disable 2FA
+
+if (isset($_POST['enable2fa-btn'])) {
+
+   $query = "UPDATE users SET twoFA = '0' WHERE username = :username";
+   $stmt = $conn->prepare($query);
+   $stmt->bindValue('username', $_POST['username']);
+   $stmt->execute();
+
+        $_SESSION['message'] = 'Success!';
+        $_SESSION['type'] = 'alert-success';
+        header('location: usergroup.php');
+        exit(0);
 
 }

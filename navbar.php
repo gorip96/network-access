@@ -22,6 +22,7 @@ if ((isset($_SESSION['isadmin'])) && ($_SESSION['isadmin'] == 1)) {
         Profile
       </a>
       <div class="dropdown-menu">
+        <a class="dropdown-item" href="2fa.php">Two-Factor Authentication</a>
         <a class="dropdown-item" href="changepassword.php">Change Password</a>
         <a class="dropdown-item" href="logout.php">Logout</a>
       </div>
