@@ -39,6 +39,7 @@ include "navbar.php";
 
 	$g = new \Google\Authenticator\GoogleAuthenticator();
 	$secret = $row->username.$row->token;
+	$username = $row->username;
 ?>
 
   <div class="container">
@@ -72,7 +73,7 @@ include "navbar.php";
           // echo '<button type="button" class="btn btn-primary btn-block" data-toggle="collapse" data-target="#twoFA" aria-expanded="false" aria-controls="twoFA">Enable 2FA</button>';
 	  echo '<div>Scan this QR code using your authenticator app</div><br>';
 	  echo '<div class="d-flex justify-content-center" id="twoFA">';
-	  echo '<div><img src="'.$g->getURL(''.$row->username.'', $systemhostname, $secret).'" /></div><br>';
+	  echo '<div><img src="'.$g->getURL($username, $systemhostname, $secret).'" /></div><br>';
 	  echo '</div>';
 	  echo '<form method="post"><div><p>Input code : </p><input tyoe="number" name="twoFAcode"></div><br>';
 	  echo '<input type="hidden" name="username" value="'.$row->username.'">';
