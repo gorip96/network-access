@@ -38,7 +38,7 @@ include "navbar.php";
 	$row = $stmt->fetch(PDO::FETCH_OBJ);
 
 	$g = new \Google\Authenticator\GoogleAuthenticator();
-	$secret = '2b05e0d773a82302c78daf348b5f6ebb';
+	$secret = 'c0b4702c51bc0c76b77af4338a015f33';
 	// $secret = $row->token;
 	$username = $row->username;
 ?>
