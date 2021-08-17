@@ -490,6 +490,7 @@ if (isset($_POST['delusergroup-btn'])) {
         $_SESSION['message'] = 'Success!';
         $_SESSION['type'] = 'alert-success';
         header('location: usergroup.php');
+	exit(0);
 
 }
 
@@ -518,12 +519,14 @@ if (isset($_POST['enable2fa-btn'])) {
         $_SESSION['message'] = 'Success!';
         $_SESSION['type'] = 'alert-success';
         header('location: 2fa.php');
+	exit(0);
 
    } else {
 
         $_SESSION['message'] = 'Invalid Code!';
         $_SESSION['type'] = 'alert-danger';
         header('location: 2fa.php');
+	exit(0);
 
    }
 
