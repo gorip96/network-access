@@ -505,7 +505,7 @@ if (isset($_POST['enable2fa-btn'])) {
    $row = $stmt->fetch(PDO::FETCH_OBJ);
 
    $g = new \Google\Authenticator\GoogleAuthenticator();
-   $secret = $row->username.$row->code2fa;
+   $secret = $row->code2fa;
 
    $check_this_code = $_POST['twoFAcode'];
 
