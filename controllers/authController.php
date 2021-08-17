@@ -122,6 +122,7 @@ if (isset($_POST['login-btn'])) {
                 $_SESSION['email'] = $user->email;
                 $_SESSION['verified'] = $user->verified;
                 $_SESSION['isadmin'] = $user->isadmin;
+		$_SESSIOn['2fa'] = $user->twoFA;
                 $_SESSION['message'] = 'You are logged in!';
                 $_SESSION['type'] = 'alert-success';
                 header('location: index.php');
@@ -552,5 +553,13 @@ if (isset($_POST['disable2fa-btn'])) {
         $_SESSION['type'] = 'alert-success';
         header('location: 2fa.php');
         exit(0);
+
+}
+
+// 2FA verification
+
+if (isset($_POST['verify2fa-btn'])) {
+
+
 
 }
