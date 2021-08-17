@@ -70,6 +70,8 @@ include "navbar.php";
           echo '<button type="button" class="btn btn-primary btn-block" data-toggle="collapse" data-target="#twoFA" aria-expanded="false" aria-controls="twoFA">Enable 2FA</button>';
 	  echo '<div class="collapse d-flex justify-content-center" id="twoFA">';
 	  echo '<img src="'.$g->getURL(''.$row->username.'', $systemhostname, $secret).'" />';
+	  echo '<input tyoe="number" name="twoFAcode">';
+          echo '<button type="submit" class="btn btn-primary btn-block" name="enable2fa-btn">Disable 2FA</button>';
 	  echo '</div>';
 	} else {
           echo '<button type="submit" class="btn btn-danger btn-block" name="disable2fa-btn">Disable 2FA</button>';
