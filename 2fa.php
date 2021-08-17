@@ -77,7 +77,8 @@ include "navbar.php";
 	  echo '<div><img src="'.$g->getURL($username, $systemhostname, $secret).'" /></div><br>';
 	  echo '</div>';
 	  echo '<form method="post"><div><p>Input code : </p><input tyoe="number" name="twoFAcode"></div><br>';
-	  echo '<input type="hidden" name="username" value="'.$row->username.'">';
+	  echo '<input type="hidden" name="username" value="'.$_SESSION['username'].'">';
+	  // echo '<input type="hidden" name="username" value="'.$row->username.'">';
           echo '<div><button type="submit" class="btn btn-primary btn-block" name="enable2fa-btn">Enable 2FA</button></div></form>';
 	  echo '</div>';
 	} else {
