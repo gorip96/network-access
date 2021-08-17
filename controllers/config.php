@@ -15,6 +15,6 @@ $raddbpass = '';
 
 // System settings
 
-$systemurl = '';
+$systemhostname = ''; // put server hostname without http: or https:
 
 ?>
