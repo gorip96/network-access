@@ -122,10 +122,14 @@ if (isset($_POST['login-btn'])) {
                 $_SESSION['email'] = $user->email;
                 $_SESSION['verified'] = $user->verified;
                 $_SESSION['isadmin'] = $user->isadmin;
-		$_SESSIOn['2fa'] = $user->twoFA;
+		$_SESSION['2fa'] = $user->twoFA;
                 $_SESSION['message'] = 'You are logged in!';
                 $_SESSION['type'] = 'alert-success';
+	if ($user->twoFA == '1') {
+                header('location: verify2fa.php');
+	} else {
                 header('location: index.php');
+	}
                 exit(0);
             } else { // if password does not match
                 $errors['login_fail'] = "Wrong username / password";
@@ -560,6 +564,36 @@ if (isset($_POST['disable2fa-btn'])) {
 
 if (isset($_POST['verify2fa-btn'])) {
 
+   $query = "SELECT * FROM users WHERE username = :username";
+   $stmt = $conn->prepare($query);
+   $stmt->bindValue('username', $_POST['username']);
+   $stmt->execute();
+   $row = $stmt->fetch(PDO::FETCH_OBJ);
 
+   $g = new \Google\Authenticator\GoogleAuthenticator();
+   $secret = $row->code2fa;
+
+   $check_this_code = $_POST['twoFAcodeverify'];
+
+   if ($g->checkCode($secret, $check_this_code)) {
+
+        $_SESSION['id'] = $user->id;
+        $_SESSION['username'] = $user->username;
+        $_SESSION['email'] = $user->email;
+        $_SESSION['verified'] = $user->verified;
+        $_SESSION['isadmin'] = $user->isadmin;
+        $_SESSION['2fa'] = $user->twoFA;
+	$_SESSION['verify2fa'] = '1';
+        $_SESSION['message'] = 'You are logged in!';
+        $_SESSION['type'] = 'alert-success';
+	header('location: index.php');
+	exit(0);
+
+   } else {
+
+        $_SESSION['message'] = 'Invalid Code!';
+        $_SESSION['type'] = 'alert-danger';
+        header('location: verify2fa.php');
+        exit(0);
 
 }
