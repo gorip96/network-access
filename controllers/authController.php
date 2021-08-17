@@ -595,5 +595,6 @@ if (isset($_POST['verify2fa-btn'])) {
         $_SESSION['type'] = 'alert-danger';
         header('location: verify2fa.php');
         exit(0);
+   }
 
 }
