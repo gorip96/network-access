@@ -1,5 +1,6 @@
 <?php
 include 'controllers/authController.php';
+include 'controllers/config.php';
 
 // redirect user to login page if they're not logged in
 if (empty($_SESSION['id'])) {
@@ -66,8 +67,8 @@ include "navbar.php";
           </div>
         <?php else: ?>
 	<?php if (($row->twoFA) == '0') {
-          echo '<button type="button" class="btn btn-primary btn-block" data-toggle="collapse" data-target="#2fa" aria-expanded="false" aria-controls="2fa">Enable 2FA</button>';
-	  echo '<div class="collapse" id="2fa">';
+          echo '<button type="button" class="btn btn-primary btn-block" data-toggle="collapse" data-target="#twoFA" aria-expanded="false" aria-controls="twoFA">Enable 2FA</button>';
+	  echo '<div class="collapse" id="twoFA">';
 	  echo '<img src="'.$g->getURL(''.$row->username.'', $systemhostname, $secret).'" />';
 	  echo '</div>';
 	} else {
