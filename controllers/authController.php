@@ -494,7 +494,7 @@ if (isset($_POST['delusergroup-btn'])) {
 
 if (isset($_POST['enable2fa-btn'])) {
 
-   $query = "SELECT * FROM users";
+   $query = "SELECT * FROM users WHERE username = :username";
    $stmt = $conn->prepare($query);
    $stmt->bindValue('username', $_POST['username']);
    $stmt->execute();
