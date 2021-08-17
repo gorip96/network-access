@@ -1,7 +1,7 @@
 <?php
 
 require "config.php";
-require '../vendor/autoload.php';
+require 'vendor/autoload.php';
 
 require_once ("lib/MailService.php");
 
