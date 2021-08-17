@@ -70,10 +70,10 @@ include "navbar.php";
           echo '<h3>Enable 2FA</h3>';
           // echo '<button type="button" class="btn btn-primary btn-block" data-toggle="collapse" data-target="#twoFA" aria-expanded="false" aria-controls="twoFA">Enable 2FA</button>';
 	  echo '<div class="collapse d-flex justify-content-center" id="twoFA">';
-	  echo 'Scan this QR code using your authenticator app';
-	  echo '<img src="'.$g->getURL(''.$row->username.'', $systemhostname, $secret).'" />';
-	  echo '<input tyoe="number" name="twoFAcode">';
-          echo '<button type="submit" class="btn btn-primary btn-block" name="enable2fa-btn">Enable 2FA</button>';
+	  echo '<div>Scan this QR code using your authenticator app</div>';
+	  echo '<div><img src="'.$g->getURL(''.$row->username.'', $systemhostname, $secret).'" /></div>';
+	  echo '<div><input tyoe="number" name="twoFAcode"></div>';
+          echo '<div><button type="submit" class="btn btn-primary btn-block" name="enable2fa-btn">Enable 2FA</button></div>';
 	  echo '</div>';
 	} else {
           echo '<button type="submit" class="btn btn-danger btn-block" name="disable2fa-btn">Disable 2FA</button>';
