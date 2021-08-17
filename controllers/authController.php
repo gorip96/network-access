@@ -123,11 +123,11 @@ if (isset($_POST['login-btn'])) {
                 $_SESSION['verified'] = $user->verified;
                 $_SESSION['isadmin'] = $user->isadmin;
 		$_SESSION['2fa'] = $user->twoFA;
-                $_SESSION['message'] = 'You are logged in!';
-                $_SESSION['type'] = 'alert-success';
 	if ($user->twoFA == '1') {
                 header('location: verify2fa.php');
 	} else {
+                $_SESSION['message'] = 'You are logged in!';
+                $_SESSION['type'] = 'alert-success';
                 header('location: index.php');
 	}
                 exit(0);
@@ -568,10 +568,10 @@ if (isset($_POST['verify2fa-btn'])) {
    $stmt = $conn->prepare($query);
    $stmt->bindValue('username', $_POST['username']);
    $stmt->execute();
-   $row = $stmt->fetch(PDO::FETCH_OBJ);
+   $user = $stmt->fetch(PDO::FETCH_OBJ);
 
    $g = new \Google\Authenticator\GoogleAuthenticator();
-   $secret = $row->code2fa;
+   $secret = $user->code2fa;
 
    $check_this_code = $_POST['twoFAcodeverify'];
 
