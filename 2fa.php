@@ -65,7 +65,11 @@ include "navbar.php";
             <strong><?php echo $_SESSION['email']; ?></strong>
           </div>
         <?php else: ?>
-          <button class="btn btn-lg btn-primary btn-block">Enable 2FA</button>
+	<? if ($row->2fa == '0'); {
+          echo '<button class="btn btn-lg btn-primary btn-block">Enable 2FA</button>';
+	} else {
+          echo '<button class="btn btn-lg btn-danger btn-block">Disable 2FA</button>';
+	} ?>
         <?php endif;?>
       </div>
     </div>
