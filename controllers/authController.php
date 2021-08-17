@@ -509,10 +509,10 @@ if (isset($_POST['enable2fa-btn'])) {
    $stmt = $conn->prepare($query);
    $stmt->bindValue('username', $_POST['username']);
    $stmt->execute();
-   $row = $stmt->fetch(PDO::FETCH_OBJ);
+   $user = $stmt->fetch(PDO::FETCH_OBJ);
 
    $g = new \Google\Authenticator\GoogleAuthenticator();
-   $secret = $row->code2fa;
+   $secret = $user->code2fa;
 
    $check_this_code = $_POST['twoFAcode'];
 
@@ -523,6 +523,13 @@ if (isset($_POST['enable2fa-btn'])) {
    $stmt2fa->bindValue('username', $_POST['username']);
    $stmt2fa->execute();
 
+        $_SESSION['id'] = $user->id;
+        $_SESSION['username'] = $user->username;
+        $_SESSION['email'] = $user->email;
+        $_SESSION['verified'] = $user->verified;
+        $_SESSION['isadmin'] = $user->isadmin;
+        $_SESSION['2fa'] = '1';
+	$_SESSION['verify2fa'] = '1';
         $_SESSION['message'] = 'Success!';
         $_SESSION['type'] = 'alert-success';
         header('location: 2fa.php');
@@ -552,7 +559,7 @@ if (isset($_POST['disable2fa-btn'])) {
    $stmt->execute();
 
 
-
+	$_SESSION['2fa'] = '0';
         $_SESSION['message'] = 'Success!';
         $_SESSION['type'] = 'alert-success';
         header('location: 2fa.php');
