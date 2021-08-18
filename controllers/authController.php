@@ -149,10 +149,7 @@ if (isset($_POST['login-btn'])) {
         }
    }
    } else {
-	    $_SESSION['message'] = "Invalid Captcha!";
-            $_SESSION['type'] = "alert-danger";
-	    header('location: login.php');
-	    exit(0);
+                $errors['captcha_fail'] = "Fail Captcha Validation";
    }
 }
 
