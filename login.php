@@ -8,7 +8,8 @@
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css" />
   <link rel="stylesheet" href="main.css">
-  <title>User verification system PHP - Login</title>
+  <title>IX Telecom Network Access - Login</title>
+  <script src="https://www.google.com/recaptcha/api.js?render=put your site key here"></script>
 </head>
 <body>
   <div class="container">
@@ -36,10 +37,19 @@
           <div class="form-group">
             <button type="submit" name="login-btn" class="btn btn-lg btn-block">Login</button>
           </div>
+	<input type="hidden" name="recaptcha_response" value="" id="recaptchaResponse">
         </form>
         <p>Don't yet have an account? <a href="signup.php">Sign up</a></p>
       </div>
     </div>
+     <script>
+     grecaptcha.ready(function(){
+         grecaptcha.execute('your-recaptcha-site-key', { action:'submit'}).then(function (token){
+             var recaptchaResponse=document.getElementById('recaptchaResponse');
+             recaptchaResponse.value=token;
+         })
+     })
+     </script>
   </div>
 </body>
 </html>
