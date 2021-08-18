@@ -104,6 +104,15 @@ if (isset($_POST['login-btn'])) {
     if (empty($_POST['password'])) {
         $errors['password'] = 'Password required';
     }
+
+    $recaptcha_url="https://www.google.com/recaptcha/api/siteverify";
+    $secret_key="your-recaptcha-secret-key";
+    $recaptcha_response=$_POST['recaptcha_response'];
+    $get_recaptcha_response=file_get_contents($recaptcha_url . '?secret='.$secret_key.'&response='.$recaptcha_response);
+    $response_json=json_decode($get_recaptcha_response);
+    // print_r($get_recaptcha_response->score);
+    if($response_json->success == true && $response_json->score>=0.5 && $response_json->action=='submit'){
+
     $username = $_POST['username'];
     $password = $_POST['password'];
 
@@ -138,7 +147,13 @@ if (isset($_POST['login-btn'])) {
             $_SESSION['message'] = "Database error. Login failed!";
             $_SESSION['type'] = "alert-danger";
         }
-    }
+   }
+   } else {
+	    $_SESSION['message'] = "Invalid Captcha!";
+            $_SESSION['type'] = "alert-danger";
+	    header('location: login.php');
+	    exit(0);
+   }
 }
 
 // Make admin
