@@ -174,7 +174,7 @@ if ($_SESSION['isadmin'] == '1' && $_SESSION['2fa'] != '1') {
 	while($rowrgr = $stmtrgr->fetch(PDO::FETCH_OBJ)){
 	echo '            <tr><form method="post">';
 	echo '		    <input type="hidden" name="radgroup" value="'.$row->groups.'">';
-	echo '		    <input type="hidden" name="attribute" value="'.$rowrgr->attribute.'">';
+	echo '		    <input type="hidden" name="value" value="'.$rowrgr->value.'">';
 	echo '		    <td>'.$rowrgr->attribute.'</td>';
 	echo '		    <td>'.$rowrgr->op.'</td>';
 	echo '		    <td>'.$rowrgr->value.'</td>';
