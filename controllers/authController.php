@@ -448,9 +448,9 @@ if (isset($_POST['delgroupcheck-btn'])) {
 
 if (isset($_POST['delgroupreply-btn'])) {
 
-   $query = "DELETE FROM radgroupreply WHERE value = :value AND groupname = :groupname";
+   $query = "DELETE FROM radgroupreply WHERE id = :id AND groupname = :groupname";
    $stmt = $radconn->prepare($query);
-   $stmt->bindValue('value', $_POST['value']);
+   $stmt->bindValue('id', $_POST['id']);
    $stmt->bindValue('groupname', $_POST['radgroup']);
    $stmt->execute();
 
