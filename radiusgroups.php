@@ -167,7 +167,7 @@ if ($_SESSION['isadmin'] == '1' && $_SESSION['2fa'] != '1') {
 	echo '    <th>Attribute</th><th>Op</th><th>Value</th><th>Delete</th>';
 	echo '  </tr></thead>';
 	echo '		<tbody>';
-	$queryrgr = "SELECT * FROM radgroupreply WHERE groupname = :groupname";
+	$queryrgr = "SELECT * FROM radgroupreply WHERE groupname = :groupname ORDER BY id";
 	$stmtrgr = $radconn->prepare($queryrgr);
 	$stmtrgr->bindValue('groupname', $row->groups);
 	$stmtrgr->execute();
