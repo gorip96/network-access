@@ -1,0 +1,41 @@
+<?php return array(
+    'root' => array(
+        'pretty_version' => 'dev-main',
+        'version' => 'dev-main',
+        'type' => 'library',
+        'install_path' => __DIR__ . '/../../',
+        'aliases' => array(),
+        'reference' => '0935e84f3ad9a2376a8bc44462157919d1fc6b6e',
+        'name' => 'sonata-project/google-authenticator',
+        'dev' => true,
+    ),
+    'versions' => array(
+        'sonata-project/google-authenticator' => array(
+            'pretty_version' => 'dev-main',
+            'version' => 'dev-main',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../../',
+            'aliases' => array(),
+            'reference' => '0935e84f3ad9a2376a8bc44462157919d1fc6b6e',
+            'dev_requirement' => false,
+        ),
+        'symfony/deprecation-contracts' => array(
+            'pretty_version' => 'v2.5.2',
+            'version' => '2.5.2.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../symfony/deprecation-contracts',
+            'aliases' => array(),
+            'reference' => 'e8b495ea28c1d97b5e0c121748d6f9b53d075c66',
+            'dev_requirement' => true,
+        ),
+        'symfony/phpunit-bridge' => array(
+            'pretty_version' => 'v5.4.14',
+            'version' => '5.4.14.0',
+            'type' => 'symfony-bridge',
+            'install_path' => __DIR__ . '/../symfony/phpunit-bridge',
+            'aliases' => array(),
+            'reference' => '684084f74504c234462fafe6f5eea003a73e7e75',
+            'dev_requirement' => true,
+        ),
+    ),
+);
