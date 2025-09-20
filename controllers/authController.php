@@ -64,7 +64,7 @@ if (isset($_POST['signup-btn'])) {
     }
 
     if (count($errors) === 0) {
-        $query = "INSERT INTO users(name, username, password, email, token, code2fa) values(:username, :password, :email, :token, :code2fa)";
+        $query = "INSERT INTO users(name, username, password, email, token, code2fa) values(:fullname, :username, :password, :email, :token, :code2fa)";
         $stmt = $conn->prepare($query);
 	$stmt->bindValue('fullname', $_POST['fullname']);
 	$stmt->bindValue('username', $_POST['username']);
