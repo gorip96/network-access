@@ -19,7 +19,13 @@ if ((isset($_SESSION['isadmin'])) && ($_SESSION['isadmin'] == 1)) {
      </li>
     <li class="nav-item dropdown">
       <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-        Profile
+<?php
+if ((isset($_SESSION['fullname'])) {
+	echo $_SESSION['fullname'];
+      } else {
+        echo 'Profile';
+}
+?>
       </a>
       <div class="dropdown-menu">
         <a class="dropdown-item" href="2fa.php">Two-Factor Authentication</a>
