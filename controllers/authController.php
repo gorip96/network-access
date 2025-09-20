@@ -116,7 +116,7 @@ if (isset($_POST['login-btn'])) {
     }
 
     $recaptcha_url="https://www.google.com/recaptcha/api/siteverify";
-    $secret_key="your-recaptcha-secret-key";
+    $secret_key=$recaptcha-secret-key;
 
     $post_data = http_build_query(
         array(
