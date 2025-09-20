@@ -118,7 +118,24 @@ if (isset($_POST['login-btn'])) {
     $recaptcha_url="https://www.google.com/recaptcha/api/siteverify";
     $secret_key="your-recaptcha-secret-key";
     $recaptcha_response=$_POST['recaptcha_response'];
-    $get_recaptcha_response=file_get_contents($recaptcha_url . '?secret='.$secret_key.'&response='.$recaptcha_response);
+
+    $post_data = http_build_query(
+        array(
+            'secret' => $secret_key,
+            'response' => $_POST['recaptcha_response'],
+            'remoteip' => $_SERVER['REMOTE_ADDR']
+        )
+    );
+    $opts = array('http' =>
+        array(
+            'method'  => 'POST',
+            'header'  => 'Content-type: application/x-www-form-urlencoded',
+            'content' => $post_data
+        )
+    );
+    $context  = stream_context_create($opts);
+
+    $get_recaptcha_response=file_get_contents($recaptcha_url . false, $context);
     $response_json=json_decode($get_recaptcha_response);
     // print_r($get_recaptcha_response->score);
     if($response_json->success == true && $response_json->score>=0.5 && $response_json->action=='submit'){
