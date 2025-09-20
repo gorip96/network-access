@@ -155,7 +155,7 @@ if (isset($_POST['login-btn'])) {
             if (password_verify($password, $user->password)) { // if password matches
 
                 $_SESSION['id'] = $user->id;
-                $_SESSION['fullname'] = $user->fullname;
+                $_SESSION['fullname'] = $user->name;
                 $_SESSION['username'] = $user->username;
                 $_SESSION['email'] = $user->email;
                 $_SESSION['verified'] = $user->verified;
