@@ -27,6 +27,9 @@ $radconn = new PDO("mysql:host=$raddbhost;dbname=$raddbname;port=$raddbport", "$
 // Sign Up User
 
 if (isset($_POST['signup-btn'])) {
+    if (empty($_POST['name'])) {
+        $errors['name'] = 'Full name required';
+    }
     if (empty($_POST['username'])) {
         $errors['username'] = 'Username required';
     } else if (strrpos($_POST["username"], ' ') !== false) {
@@ -42,6 +45,7 @@ if (isset($_POST['signup-btn'])) {
         $errors['passwordConf'] = 'The two passwords do not match';
     }
 
+    $name = $_POST['name'];
     $username = $_POST['username'];
     $email = $_POST['email'];
     $token = bin2hex(random_bytes(50)); // generate unique token
@@ -60,8 +64,9 @@ if (isset($_POST['signup-btn'])) {
     }
 
     if (count($errors) === 0) {
-        $query = "INSERT INTO users(username, password, email, token, code2fa) values(:username, :password, :email, :token, :code2fa)";
+        $query = "INSERT INTO users(name, username, password, email, token, code2fa) values(:username, :password, :email, :token, :code2fa)";
         $stmt = $conn->prepare($query);
+	$stmt->bindValue('name', $_POST['name']);
 	$stmt->bindValue('username', $_POST['username']);
 	$stmt->bindValue('password', password_hash($_POST['password'], PASSWORD_BCRYPT));
 	$stmt->bindValue('email', $_POST['email']);
@@ -84,9 +89,10 @@ if (isset($_POST['signup-btn'])) {
             $user_id = $conn->lastInsertId();
 
             // TO DO: send verification email to user
-	    sendContactMail($email, $username, $token);
+	    sendContactMail($email, $name, $token);
 
             $_SESSION['id'] = $user_id;
+            $_SESSION['name'] = $name;
             $_SESSION['username'] = $username;
             $_SESSION['email'] = $email;
             $_SESSION['verified'] = false;
@@ -131,6 +137,7 @@ if (isset($_POST['login-btn'])) {
             if (password_verify($password, $user->password)) { // if password matches
 
                 $_SESSION['id'] = $user->id;
+                $_SESSION['name'] = $user->name;
                 $_SESSION['username'] = $user->username;
                 $_SESSION['email'] = $user->email;
                 $_SESSION['verified'] = $user->verified;

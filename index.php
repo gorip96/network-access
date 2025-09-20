@@ -61,7 +61,7 @@ $_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
         </div>
         <?php endif;?>
 
-        <h4>Welcome, <?php echo $_SESSION['username']; ?></h4>
+        <h4>Welcome, <?php echo $_SESSION['name']; ?></h4>
         <?php if (!isset($_SESSION['verified'])): ?>
           <div class="alert alert-warning alert-dismissible fade show" role="alert">
             You need to verify your email address!
