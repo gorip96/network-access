@@ -14,7 +14,7 @@ if (empty($_SESSION['username'])) {
 if (empty($_SESSION['email'])) {
     $_SESSION['email'] = '';
 }
-if (empty($_SESSION['2fa])) {
+if (empty($_SESSION['2fa'])) {
     $_SESSION['2fa'] = '';
 } else {
     if ($_SESSION['2fa'] == '1' && $_SESSION['verify2fa'] != '1') {
