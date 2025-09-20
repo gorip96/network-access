@@ -16,6 +16,6 @@ $raddbpass = '';
 // System settings
 
 $systemhostname = ''; // put server hostname without http: or https:
-$recaptcha-site-key = '';
-$recaptcha-secret-key = '';
+$recaptcha_site_key = '';
+$recaptcha_secret_key = '';
 ?>
