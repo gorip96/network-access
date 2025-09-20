@@ -8,7 +8,7 @@ use League\OAuth2\Client\Provider\Google;
 
 include "Config.php";
 
-    function sendContactMail($email, $name, $token)
+    function sendContactMail($email, $fullname, $token)
     {
         $subject = 'Verify your email';
         $content = '<!DOCTYPE html>
