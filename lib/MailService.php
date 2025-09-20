@@ -104,7 +104,7 @@ include "Config.php";
         $mail->setFrom(Config::SENDER_EMAIL, Config::SENDER_NAME);
         $mail->addReplyTo(Config::SENDER_EMAIL, Config::SENDER_NAME);
 
-        $mail->addAddress($email, $name);
+        $mail->addAddress($email, $fullname);
 
         $mail->Subject = $subject;
 

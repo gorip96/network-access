@@ -38,7 +38,7 @@
         <?php endif;?>
           <div class="form-group">
             <label>Full Name</label>
-            <input type="text" name="name" class="form-control form-control-lg" value="<?php echo $name; ?>">
+            <input type="text" name="full" class="form-control form-control-lg" value="<?php echo $fullname; ?>">
           </div>
           <div class="form-group">
             <label>Username</label>
