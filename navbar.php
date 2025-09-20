@@ -20,7 +20,7 @@ if ((isset($_SESSION['isadmin'])) && ($_SESSION['isadmin'] == 1)) {
     <li class="nav-item dropdown">
       <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
 <?php
-if ((isset($_SESSION['fullname'])) {
+if (isset($_SESSION['fullname'])) {
 	echo $_SESSION['fullname'];
       } else {
         echo 'Profile';
