@@ -15,6 +15,7 @@ use Base32\Base32;
 session_start();
 $username = "";
 $email = "";
+$fullname = "";
 $errors = [];
 
 if (isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] === 'https') {
