@@ -14,8 +14,12 @@ if (empty($_SESSION['username'])) {
 if (empty($_SESSION['email'])) {
     $_SESSION['email'] = '';
 }
-if ($_SESSION['2fa'] == '1' && $_SESSION['verify2fa'] != '1') {
-    header('location: verify2fa.php');
+if (empty($_SESSION['2fa])) {
+    $_SESSION['2fa'] = '';
+} else {
+    if ($_SESSION['2fa'] == '1' && $_SESSION['verify2fa'] != '1') {
+        header('location: verify2fa.php');
+}
 }
 if ($_SESSION['isadmin'] == '1' && $_SESSION['2fa'] != '1') {
     header('location: 2fa.php');
