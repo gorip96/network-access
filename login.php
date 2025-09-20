@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css" />
   <link rel="stylesheet" href="main.css">
   <title>IX Telecom Network Access - Login</title>
-  <script src="https://www.google.com/recaptcha/api.js?render=put your site key here"></script>
+  <script src="https://www.google.com/recaptcha/api.js?render=<?php echo $recaptcha-site-key; ?>"></script>
 </head>
 <body>
   <div class="container">
@@ -44,7 +44,7 @@
     </div>
      <script>
      grecaptcha.ready(function(){
-         grecaptcha.execute('your-recaptcha-site-key', { action:'submit'}).then(function (token){
+         grecaptcha.execute('<?php echo $recaptcha-site-key; ?>', { action:'submit'}).then(function (token){
              var recaptchaResponse=document.getElementById('recaptchaResponse');
              recaptchaResponse.value=token;
          })
