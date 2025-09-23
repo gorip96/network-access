@@ -1,5 +1,7 @@
 <?php
 
+$mailtype = $_POST['mailtype'];
+
 switch ($mailtype) {
 	case "signup";
 		$subject = 'Verify your email';
