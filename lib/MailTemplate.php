@@ -1,8 +1,6 @@
 <?php
 
-// include 'lib/MailService.php';
-
-// $mailtype = $_SESSION['mailtype'];
+$mailtype = $_SESSION['mailtype'];
 
 switch ($mailtype) {
 	case "signup";
