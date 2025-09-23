@@ -8,7 +8,11 @@ use League\OAuth2\Client\Provider\Google;
 
 include "lib/Config.php";
 // include "lib/MailTemplate.php";
-$mailtype = $_POST['mailtype'];
+if (empty($_POST['mailtype'])) {
+	$_POST['mailtype'] = ''
+   } else {
+	$mailtype = $_POST['mailtype'];
+}
 
 switch ($mailtype) {
         case "signup";
