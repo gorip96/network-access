@@ -15,6 +15,13 @@ if (!isset($_POST['mailtype'])) {
 	$mailtype = $_POST['mailtype'];
 }
 
+     function verifyToken($token)
+	{
+		return $token;
+	}
+
+$verifyToken = verifyToken($token);
+
 if ( $mailtype == "signup" ) {
         $subject = 'Verify your email';
         $content = '<!DOCTYPE html>
@@ -42,14 +49,14 @@ if ( $mailtype == "signup" ) {
                         <body>
                           <div class="wrapper">
                             <p>Thank you for signing up on our site. Please click on the link below to verify your account:.</p>
-                            <a href="https://network-access.ixtelecom.net/verify_email.php?token=' . sendContactMail($token) . '">Verify Email!</a>
+                            <a href="https://network-access.ixtelecom.net/verify_email.php?token=' . $verifyToken . '">Verify Email!</a>
                           </div>
                         </body>
                         </html>';
 
 }
 
-    function sendContactMail($email, $fullname, $token, $mailtype, $subject, $content)
+    function sendContactMail($email, $fullname, $mailtype, $subject, $content)
     {
 /*	global $subject;
 	global $content;
