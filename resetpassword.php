@@ -1,6 +1,10 @@
 <?php 
 include 'controllers/authController.php';
 
+// check if this is external forgot password
+
+if (empty($_GET['key'])) {
+
 // redirect user to login page if they're not logged in
 if (empty($_SESSION['id'])) {
     header('location: login.php');
@@ -10,6 +14,8 @@ if ($_SESSION['2fa'] == '1' && $_SESSION['verify2fa'] != '1') {
 }
 if ($_SESSION['isadmin'] == '1' && $_SESSION['2fa'] != '1') {
     header('location: 2fa.php');
+}
+
 }
 ?>
 <!DOCTYPE html>
