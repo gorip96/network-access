@@ -2,7 +2,7 @@
 
 require "config.php";
 require 'vendor/autoload.php';
-require 'lib/MailTemplate.php';
+// require 'lib/MailTemplate.php';
 
 require_once ("lib/MailService.php");
 
