@@ -4,8 +4,6 @@ include 'controllers/authController.php';
 
 session_start();
 
-// $conn = new mysqli('localhost', 'root', '', 'verify-user');
-
 if (isset($_GET['token'])) {
     $token = $_GET['token'];
     $query = "SELECT * FROM users WHERE token='$token' LIMIT 1";
@@ -13,7 +11,6 @@ if (isset($_GET['token'])) {
     $stmt->execute();
     
     $result = $stmt->fetchColumn();
-    // $result = mysqli_query($conn, $sql);
 
     if ($result > 0) {
         $user = $stmt->fetch(PDO::FETCH_OBJ);;
