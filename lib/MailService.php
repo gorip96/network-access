@@ -7,7 +7,7 @@ use PHPMailer\PHPMailer\OAuth;
 use League\OAuth2\Client\Provider\Google;
 
 include "Config.php";
-$token = $_POST['token'];
+require "lib/MailTemplate.php";
 
     function sendContactMail($email, $fullname, $token, $mailtype, $subject, $content)
     {

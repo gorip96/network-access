@@ -1,8 +1,5 @@
 <?php
 
-require 'lib/MailService.php';
-$token = $_POST['token'];
-
 switch ($mailtype) {
 	case "signup";
 		$subject = 'Verify your email';
