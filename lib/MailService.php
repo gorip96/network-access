@@ -7,7 +7,6 @@ use PHPMailer\PHPMailer\OAuth;
 use League\OAuth2\Client\Provider\Google;
 
 include "lib/Config.php";
-include "controllers/authController.php";
 
 // include "lib/MailTemplate.php";
 if (!isset($_POST['mailtype'])) {
