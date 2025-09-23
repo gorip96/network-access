@@ -17,6 +17,7 @@ session_start();
 $username = "";
 $email = "";
 $fullname = "";
+$mailtype ="";
 $errors = [];
 
 if (isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] === 'https') {
@@ -53,6 +54,7 @@ if (isset($_POST['signup-btn'])) {
     $token = bin2hex(random_bytes(50)); // generate unique token
     $password = $_POST['password'];
     $code2fa = Base32::encode(rand());
+    $mailtype = $_POST['mailtype'];
 
     // Check if email already exists
     $countuser = "SELECT * FROM users WHERE email = :email OR username = :username LIMIT 1";
@@ -89,7 +91,6 @@ if (isset($_POST['signup-btn'])) {
 
         if ($result) {
             $user_id = $conn->lastInsertId();
-	    $mailtype = 'signup';
 
             // TO DO: send verification email to user
 	    sendContactMail($email, $fullname, $token, $mailtype, $subject, $content);

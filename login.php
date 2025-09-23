@@ -42,7 +42,7 @@ include 'config.php';
           </div>
 	<input type="hidden" name="recaptcha_response" value="" id="recaptchaResponse">
         </form>
-        <p>Don't yet have an account? <a href="signup.php">Sign up</a></p>
+        <p>Don't have an account yet? <a href="signup.php">Sign up</a></p>
       </div>
     </div>
      <script>
