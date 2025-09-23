@@ -42,6 +42,7 @@ switch ($mailtype) {
                                   </div>
                                 </body>
                                 </html>';
+		break;
 
 }
 
