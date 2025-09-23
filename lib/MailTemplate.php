@@ -1,6 +1,5 @@
 <?php
 
-session_start();
 $mailtype = $_SESSION['mailtype'];
 
 switch ($mailtype) {

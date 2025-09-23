@@ -17,7 +17,7 @@ session_start();
 $username = "";
 $email = "";
 $fullname = "";
-$mailtype ="";
+$mailtype = "";
 $errors = [];
 
 if (isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] === 'https') {
