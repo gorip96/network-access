@@ -1,6 +1,6 @@
 <?php
 
-$mailtype = $_POST['mailtype'];
+require 'lib/MailService.php';
 
 switch ($mailtype) {
 	case "signup";
