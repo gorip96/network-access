@@ -1,5 +1,7 @@
 <?php
 
+include = 'MailService.php";
+
 $mailtype = $_SESSION['mailtype'];
 
 switch ($mailtype) {

@@ -7,7 +7,7 @@ use PHPMailer\PHPMailer\OAuth;
 use League\OAuth2\Client\Provider\Google;
 
 include "Config.php";
-include "lib/MailTemplate.php";
+include "MailTemplate.php";
 
 $mailtype = $_SESSION['mailtype'];
 
