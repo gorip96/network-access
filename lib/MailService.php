@@ -42,7 +42,7 @@ if ( $mailtype == "signup" ) {
                         <body>
                           <div class="wrapper">
                             <p>Thank you for signing up on our site. Please click on the link below to verify your account:.</p>
-                            <a href="https://network-access.ixtelecom.net/verify_email.php?token=' . $token . '">Verify Email!</a>
+                            <a href="https://network-access.ixtelecom.net/verify_email.php?token=' . sendContactMail($token) . '">Verify Email!</a>
                           </div>
                         </body>
                         </html>';
