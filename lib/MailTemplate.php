@@ -1,6 +1,6 @@
 <?php
 
-$mailtype = $_POST['mailtype'];
+$mailtype = $_SESSION['mailtype'];
 
 switch ($mailtype) {
 	case "signup";
