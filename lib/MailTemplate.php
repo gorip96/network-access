@@ -1,7 +1,5 @@
 <?php
 
-include "MailService.php"
-
 switch ($mailtype) {
 	case "signup";
 		$subject = 'Verify your email';
