@@ -8,9 +8,11 @@ use League\OAuth2\Client\Provider\Google;
 
 include "Config.php";
 
-    function sendContactMail($email, $fullname, $token)
+    function sendContactMail($email, $fullname, $token, $mailtype, $subject, $content)
     {
-        $subject = 'Verify your email';
+	global $subject;
+	global $content;
+/*        $subject = 'Verify your email';
         $content = '<!DOCTYPE html>
     <html lang="en">
 
@@ -40,7 +42,7 @@ include "Config.php";
       </div>
     </body>
 
-    </html>';
+    </html>'; */
 	
         require_once __DIR__ . '/../vendor/autoload.php';
         $mail = new PHPMailer(true);

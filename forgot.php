@@ -33,7 +33,7 @@ include 'config.php';
              <?php endforeach;?>
            </div>
          <?php endif;?>
-        <form action="resetpassword.php" method="post">
+        <form action="forgot.php" method="post">
           <div class="form-group">
             <label>Input Your Registered Email</label>
             <input type="text" name="email" class="form-control form-control-lg" value="<?php echo $email; ?>">
