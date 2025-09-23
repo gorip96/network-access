@@ -99,6 +99,7 @@ if (isset($_POST['signup-btn'])) {
             $_SESSION['fullname'] = $fullname;
             $_SESSION['username'] = $username;
             $_SESSION['email'] = $email;
+            $_SESSION['mailtype'] = 'signup';
             $_SESSION['verified'] = false;
             $_SESSION['message'] = 'You are logged in!';
             $_SESSION['type'] = 'alert-success';
