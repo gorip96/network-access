@@ -15,7 +15,7 @@ if (!isset($_POST['mailtype'])) {
 }
 
 switch ($mailtype) {
-        case signup;
+        case signup:
                 $subject = 'Verify your email';
                 $content = '<!DOCTYPE html>
                                 <html lang="en">
