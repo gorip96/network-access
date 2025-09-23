@@ -56,6 +56,7 @@
             <label>Password Confirm</label>
             <input type="password" name="passwordConf" class="form-control form-control-lg">
           </div>
+	    <input type="hidden" name="mailtype" value="signup">
           <div class="form-group">
             <button type="submit" name="signup-btn" class="btn btn-lg btn-block">Sign Up</button>
           </div>
