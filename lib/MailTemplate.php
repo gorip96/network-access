@@ -1,6 +1,6 @@
 <?php
 
-include 'MailService.php";
+include 'lib/MailService.php";
 
 $mailtype = $_SESSION['mailtype'];
 

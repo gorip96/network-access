@@ -6,8 +6,8 @@ use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\OAuth;
 use League\OAuth2\Client\Provider\Google;
 
-include "Config.php";
-include "MailTemplate.php";
+include "lib/Config.php";
+include "lib/MailTemplate.php";
 
 $mailtype = $_SESSION['mailtype'];
 
