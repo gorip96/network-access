@@ -9,8 +9,6 @@ use League\OAuth2\Client\Provider\Google;
 include "lib/Config.php";
 include "lib/MailTemplate.php";
 
-$mailtype = $_SESSION['mailtype'];
-
     function sendContactMail($email, $fullname, $token, $mailtype, $subject, $content)
     {
 	global $subject;
