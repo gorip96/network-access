@@ -2,7 +2,6 @@
 
 require "config.php";
 require 'vendor/autoload.php';
-// require 'lib/MailTemplate.php';
 
 require_once ("lib/MailService.php");
 
@@ -92,9 +91,8 @@ if (isset($_POST['signup-btn'])) {
         if ($result) {
             $user_id = $conn->lastInsertId();
 
-            // TO DO: send verification email to user
+            // send verification email to user
 	    sendContactMail($email, $fullname, $token, $mailtype);
-	    // verifyToken($token);
 
             $_SESSION['id'] = $user_id;
             $_SESSION['fullname'] = $fullname;

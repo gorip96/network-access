@@ -11,6 +11,9 @@ if (empty($_SESSION['isadmin'])) {
 if (empty($_SESSION['username'])) {
     $_SESSION['username'] = '';
 }
+if (empty($_SESSION['fullname'])) {
+    $_SESSION['fullname'] = '';
+}
 if (empty($_SESSION['email'])) {
     $_SESSION['email'] = '';
 }

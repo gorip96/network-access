@@ -2,8 +2,6 @@
 
 include 'controllers/authController.php';
 
-session_start();
-
 if (isset($_GET['token'])) {
     $token = $_GET['token'];
     $query = "SELECT * FROM users WHERE token='$token' LIMIT 1";
