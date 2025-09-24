@@ -56,7 +56,7 @@ include "lib/Config.php";
 #
 #}
 
-    function sendContactMail($email, $fullname, $token, $mailtype, $subject, $content)
+    function sendContactMail($email, $fullname, $token, $mailtype)
     {
 	include "lib/MailTemplate.php";
 #/*	global $subject;
