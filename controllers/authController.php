@@ -93,8 +93,8 @@ if (isset($_POST['signup-btn'])) {
             $user_id = $conn->lastInsertId();
 
             // TO DO: send verification email to user
-	    sendContactMail($email, $fullname, $mailtype, $subject, $content);
-	    verifyToken($token);
+	    sendContactMail($email, $fullname, $token, $mailtype, $subject, $content);
+	    // verifyToken($token);
 
             $_SESSION['id'] = $user_id;
             $_SESSION['fullname'] = $fullname;

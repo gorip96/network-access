@@ -9,88 +9,89 @@ use League\OAuth2\Client\Provider\Google;
 include "lib/Config.php";
 
 // include "lib/MailTemplate.php";
-if (!isset($_POST['mailtype'])) {
-	$mailtype = '';
-   } else {
-	$mailtype = $_POST['mailtype'];
-}
+#if (!isset($_POST['mailtype'])) {
+#	$mailtype = '';
+#   } else {
+#	$mailtype = $_POST['mailtype'];
+#}
+#
+#     function verifyToken($token)
+#	{
+#		return $token;
+#	}
+#
+#$verifyToken = verifyToken($token);
+#
+#if ( $mailtype == "signup" ) {
+#        $subject = 'Verify your email';
+#        $content = '<!DOCTYPE html>
+#                        <html lang="en">
+#
+#                        <head>
+#                          <meta charset="UTF-8">
+#                          <title>Email Verification</title>
+#                          <style>
+#                          .wrapper {
+#                            padding: 20px;
+#                            color: #444;
+#                            font-size: 1.3em;
+#                          }
+#                          a {
+#                            background: #592f80;
+#                            text-decoration: none;
+#                            padding: 8px 15px;
+#                            border-radius: 5px;
+#                            color: #fff;
+#                          }
+#                          </style>
+#                        </head>
+#
+#                        <body>
+#                          <div class="wrapper">
+#                            <p>Thank you for signing up on our site. Please click on the link below to verify your account:.</p>
+#                            <a href="https://network-access.ixtelecom.net/verify_email.php?token=' . $verifyToken . '">Verify Email!</a>
+#                          </div>
+#                        </body>
+#                        </html>';
+#
+#}
 
-     function verifyToken($token)
-	{
-		return $token;
-	}
-
-$verifyToken = verifyToken($token);
-
-if ( $mailtype == "signup" ) {
-        $subject = 'Verify your email';
-        $content = '<!DOCTYPE html>
-                        <html lang="en">
-
-                        <head>
-                          <meta charset="UTF-8">
-                          <title>Email Verification</title>
-                          <style>
-                          .wrapper {
-                            padding: 20px;
-                            color: #444;
-                            font-size: 1.3em;
-                          }
-                          a {
-                            background: #592f80;
-                            text-decoration: none;
-                            padding: 8px 15px;
-                            border-radius: 5px;
-                            color: #fff;
-                          }
-                          </style>
-                        </head>
-
-                        <body>
-                          <div class="wrapper">
-                            <p>Thank you for signing up on our site. Please click on the link below to verify your account:.</p>
-                            <a href="https://network-access.ixtelecom.net/verify_email.php?token=' . $verifyToken . '">Verify Email!</a>
-                          </div>
-                        </body>
-                        </html>';
-
-}
-
-    function sendContactMail($email, $fullname, $mailtype, $subject, $content)
+    function sendContactMail($email, $fullname, $token, $mailtype, $subject, $content)
     {
-/*	global $subject;
-	global $content;
-        $subject = 'Verify your email';
-        $content = '<!DOCTYPE html>
-    <html lang="en">
-
-    <head>
-      <meta charset="UTF-8">
-      <title>Test mail</title>
-      <style>
-        .wrapper {
-          padding: 20px;
-          color: #444;
-          font-size: 1.3em;
-        }
-        a {
-          background: #592f80;
-          text-decoration: none;
-          padding: 8px 15px;
-          border-radius: 5px;
-          color: #fff;
-        }
-      </style>
-    </head>
-
-    <body>
-      <div class="wrapper">
-        <p>Thank you for signing up on our site. Please click on the link below to verify your account:.</p>
-        <a href="https://network-access.ixtelecom.net/verify_email.php?token=' . $token . '">Verify Email!</a>
-      </div>
-    </body>
-
-    </html>'; */
+	include "lib/MailTemplate.php";
+#/*	global $subject;
+#	global $content;
+#        $subject = 'Verify your email';
+#        $content = '<!DOCTYPE html>
+#    <html lang="en">
+#
+#    <head>
+#      <meta charset="UTF-8">
+#      <title>Test mail</title>
+#      <style>
+#        .wrapper {
+#          padding: 20px;
+#          color: #444;
+#          font-size: 1.3em;
+#        }
+#        a {
+#          background: #592f80;
+#          text-decoration: none;
+#          padding: 8px 15px;
+#          border-radius: 5px;
+#          color: #fff;
+#        }
+#      </style>
+#    </head>
+#
+#    <body>
+#      <div class="wrapper">
+#        <p>Thank you for signing up on our site. Please click on the link below to verify your account:.</p>
+#        <a href="https://network-access.ixtelecom.net/verify_email.php?token=' . $token . '">Verify Email!</a>
+#      </div>
+#    </body>
+#
+#    </html>'; */
 	
         require_once __DIR__ . '/../vendor/autoload.php';
         $mail = new PHPMailer(true);
