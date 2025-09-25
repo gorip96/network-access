@@ -83,7 +83,7 @@ $_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
       </div>
     </div>
   </div>
-        <?php if (isset($_SESSION['verified'])): ?>
+        <?php if (isset($_SESSION['verified']) && (($_SESSION['isadmin']) == 1)): ?>
            <div class="container">
              <h2>Users List</h2>
              <table class="table table-striped">
